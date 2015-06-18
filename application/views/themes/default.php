@@ -130,7 +130,9 @@
               <li><a href="<?php echo site_url('revision'); ?>">Revision</a></li>
                <li><a href="<?php echo site_url('formato_lista'); ?>">Formato</a></li>
                   <li><a href="<?php echo site_url('datos_generales'); ?>">Datos Generales</a></li>
-              <li><a href="<?php echo site_url('example/example_3'); ?>">Example 3</a></li>
+              <li><a href="<?php echo site_url('formato_legalizacion'); ?>">Formato L</a></li>
+               <li><a href="<?php echo site_url('lista_legalizacion'); ?>">Lista L</a></li>
+                      <li><a href="<?php echo site_url('garantia'); ?>">Garantia</a></li>
               <li><a href="<?php echo site_url('example/example_4'); ?>">Example 4</a></li>
             </ul>
           </div><!--/.nav-collapse -->
