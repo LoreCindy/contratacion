@@ -46,7 +46,7 @@
     <![endif]-->
 
     <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/themes/default/images/favicon.png" type="image/x-icon"/>
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/themes/default/images/gober.png" type="image/x-icon"/>
 	<meta property="og:image" content="<?php echo base_url(); ?>assets/themes/default/images/facebook-thumb.png"/>
 	<link rel="image_src" href="<?php echo base_url(); ?>assets/themes/default/images/facebook-thumb.png" />
 	<style type="text/css">
@@ -121,13 +121,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <img src="<?php echo base_url(); ?>assets/themes/default/images/logo.png" style="float:left;margin-top:5px;z-index:5" alt="logo"/>
-          <a class="brand" href="<?php echo site_url(); ?>">&nbsp;&nbsp;Your Brand</a>
+          <img src="<?php echo base_url(); ?>assets/themes/default/images/gober.png" style="float:left;margin-top:5px;z-index:5" alt="logo"/>
+          <a class="brand" href="<?php echo site_url(); ?>">&nbsp;&nbsp;Contratación</a>
           <div style="height: 0px;" class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="<?php echo site_url(); ?>">Home</a></li>
-			  <li><a href="<?php echo site_url('proyectos'); ?>">Proyecto</a></li>
-              <li><a href="<?php echo site_url('example/example_2'); ?>">Example 2</a></li>
+              <li class="active"><a href="<?php echo site_url(); ?>">Inicio</a></li>
+               <li><a href="<?php echo site_url('proyectos'); ?>">Proyecto</a></li>
+              <li><a href="<?php echo site_url('revision'); ?>">Revision</a></li>
               <li><a href="<?php echo site_url('example/example_3'); ?>">Example 3</a></li>
               <li><a href="<?php echo site_url('example/example_4'); ?>">Example 4</a></li>
             </ul>
