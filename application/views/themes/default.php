@@ -128,6 +128,7 @@
               <li class="active"><a href="<?php echo site_url(); ?>">Inicio</a></li>
                <li><a href="<?php echo site_url('proyectos'); ?>">Proyecto</a></li>
               <li><a href="<?php echo site_url('revision'); ?>">Revision</a></li>
+               <li><a href="<?php echo site_url('formato_lista'); ?>">Formato</a></li>
               <li><a href="<?php echo site_url('example/example_3'); ?>">Example 3</a></li>
               <li><a href="<?php echo site_url('example/example_4'); ?>">Example 4</a></li>
             </ul>
