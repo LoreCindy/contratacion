@@ -28,7 +28,7 @@ a:hover
 </style>
 </head>
 <body>
-	<h1>Administración de Revisión</h1>
+<center><h1>Administración de Revisión</h1></center>
     <div>
 		<?php echo $output; ?>
     </div>

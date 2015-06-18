@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>Administracion Proyectos - Sourcezilla</title>
+	<title>Administracion Formato Lista - Sourcezilla</title>
 <?php 
 foreach($css_files as $file): ?>
 	<link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
@@ -28,10 +28,9 @@ a:hover
 </style>
 </head>
 <body>
-<center><h1>Administración de Proyectos</h1></center>
+<center><h1>Administración de Formato Lista</h1></center>
     <div>
 		<?php echo $output; ?>
     </div>
 </body>
 </html>
-
