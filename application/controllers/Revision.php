@@ -76,17 +76,20 @@ class Revision extends CI_Controller{
                         /* aqui indicamos las relaciones de la tabla formato lista*/
                        $crud -> set_relation ('Proyecto_id_proyecto' , 'proyecto' , 'nombre_proyecto' ) ;
                     //----------------------------------------------------------------------------------    
-                       
+                         $crud->set_primary_key('id_lista_legalizacion','listalegalizacion');
+                        
+                         $crud -> set_relation ('lista_legalizacion_id' , 'listalegalizacion' , 'supervisor') ;
                          
+                       
 			/* Asignamos el idioma español */
 			$crud->set_language('spanish');
 
 			/* Aqui le decimos a grocery que estos campos son obligatorios */
 			$crud->required_fields(	
                                 'id_revision',
-				'nombreDependenciaResponsable', 
-				'nombre_listaChequeo',
-                                'informacionGeneral',
+                                'nombre_revision',
+				'dependencia_responsable', 
+				'informacionGeneral',
                                 'lista_legalizacion_id',
                                 'obdervaciones',
                                 'formato_id',
@@ -95,10 +98,10 @@ class Revision extends CI_Controller{
 
 			/* Aqui le indicamos que campos deseamos mostrar */
 			$crud->columns( 
-                                'id_revision',
-				'nombreDependenciaResponsable', 
-				'nombre_listaChequeo',
-                                'informacionGeneral',
+                                 'id_revision',
+                                'nombre_revision',
+				'dependencia_responsable', 
+				'informacionGeneral',
                                 'lista_legalizacion_id',
                                 'obdervaciones',
                                 'formato_id',

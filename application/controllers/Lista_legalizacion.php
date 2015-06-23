@@ -65,9 +65,10 @@ class Lista_legalizacion extends CI_Controller  {
                        //-------------------------------------------------------------------                       
                            /* aqui indicamos la llave primaria de la tabla relacion  */
                         //  $crud->set_primary_key('id_formato','formatolista');
+                          $crud->set_primary_key('idFecha','fecha');
                         
                         /* aqui indicamos las relaciones de la tabla formato lista*/
-                      // $crud -> set_relation ('formato_id' , 'formatolista' , 'nombre_formato' ) ;
+                      $crud -> set_relation ('Fecha_idFecha' , 'fecha' , 'nombre_fecha' ) ;
                         
                      //---------------------------------------------------------------------------      
                          

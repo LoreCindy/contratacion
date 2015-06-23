@@ -127,11 +127,12 @@
             <ul class="nav">
               <li class="active"><a href="<?php echo site_url(); ?>">Inicio</a></li>
                <li><a href="<?php echo site_url('proyectos'); ?>">Proyecto</a></li>
+                <li><a href="<?php echo site_url('formato_lista'); ?>">Formato Lista</a></li>
               <li><a href="<?php echo site_url('revision'); ?>">Revision</a></li>
-               <li><a href="<?php echo site_url('formato_lista'); ?>">Formato</a></li>
+              
                   <li><a href="<?php echo site_url('datos_generales'); ?>">Datos Generales</a></li>
-              <li><a href="<?php echo site_url('formato_legalizacion'); ?>">Formato L</a></li>
-               <li><a href="<?php echo site_url('lista_legalizacion'); ?>">Lista L</a></li>
+              <li><a href="<?php echo site_url('formato_legalizacion'); ?>">Formato Legalizacion</a></li>
+               <li><a href="<?php echo site_url('lista_legalizacion'); ?>">Lista Legalización</a></li>
                <li><a href="<?php echo site_url('documento'); ?>">Documento</a></li>
                 <li><a href="<?php echo site_url('fecha'); ?>">Fecha</a></li>
                 <li><a href="<?php echo site_url('tipo'); ?>">Tipo</a></li>
