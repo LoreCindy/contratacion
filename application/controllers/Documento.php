@@ -65,6 +65,15 @@ class Documento extends CI_Controller {
                                               
 			/* Asignamos el idioma español */
 			$crud->set_language('spanish');
+                        
+                        //-----------------------------------------------------------
+                         $crud->set_primary_key('id_formato_legalizacion','formato_legalizacion');
+                         $crud -> set_relation ('formato_legalizacion_id' , 'formato_legalizacion' , 'documentos_legalizacion') ;
+                        
+                        //---------------------------------------------------------
+                         
+                         /* aqui indicamos el buscador de un archivo en pdf */
+                         $crud->set_field_upload('archivo', 'assets/uploads/files');
 
 			/* Aqui le decimos a grocery que estos campos son obligatorios */
 			$crud->required_fields(	

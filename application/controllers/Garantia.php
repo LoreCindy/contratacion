@@ -69,7 +69,20 @@ class Garantia extends CI_Controller {
                         /* aqui indicamos las relaciones de la tabla formato lista*/
                       // $crud -> set_relation ('formato_id' , 'formatolista' , 'nombre_formato' ) ;
                         
+                         
+                         //----------------------------------------------------------------------------------    
+                         $crud->set_primary_key('id_lista_legalizacion','listalegalizacion');
+                        
+                         $crud -> set_relation ('lista_legalizacion_id' , 'listalegalizacion' , 'supervisor') ;
+                         
                      //---------------------------------------------------------------------------      
+                         $crud->set_primary_key('idTipo','tipo');
+                         $crud -> set_relation ('Tipo_idTipo' , 'tipo' , 'nombre_tipo') ;
+                         
+                      //-------------------------------------------------------------
+                          $crud->set_primary_key('idDocumento','documento');
+                           $crud -> set_relation ('Documento_idDocumento' , 'documento' , 'nombre_Documento') ;
+                         
                          
 			/* Asignamos el idioma español */
 			$crud->set_language('spanish');
