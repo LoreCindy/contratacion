@@ -59,7 +59,7 @@ class Formato_lista extends CI_Controller{
 			/* Le asignamos un nombre */
 			$crud->set_subject('FormatoLista');
 
-                         $crud->set_primary_key('id_formato','formatolista');
+                        $crud->set_primary_key('id_formato','formatolista');
                                 //('codigoBPID','Proyecto');
                                               
 			/* Asignamos el idioma español */
@@ -78,6 +78,10 @@ class Formato_lista extends CI_Controller{
 				'nombre_formato', 
 				'fecha_formato'
                             );
+                        $crud->display_as('id_formato','identificador')
+                             ->display_as('nombre_formato','Nombre lista chequeo')
+                             ->display_as('fecha_formato','fecha');
+                            
 			
 			/* Generamos la tabla */
 			$output = $crud->render();

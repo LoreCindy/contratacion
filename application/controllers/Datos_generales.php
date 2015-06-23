@@ -86,6 +86,10 @@ class Datos_generales extends CI_Controller {
 				'nombre_dato', 
 				'formato_id'
                             );
+                        
+                        $crud->display_as('id_datos_generales','identificador')
+                             ->display_as('formato_id','Tipo Lista Chequeo');
+                             
 			
 			/* Generamos la tabla */
 			$output = $crud->render();
