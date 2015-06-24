@@ -38,9 +38,6 @@ class Formato_legalizacion extends CI_Controller  {
 		
 	}
 
-
-	
-
 	/*
 	 * 
  	 **/
@@ -67,10 +64,10 @@ class Formato_legalizacion extends CI_Controller  {
                           $crud->set_primary_key('id_formato','formatolista');
                         
                         /* aqui indicamos las relaciones de la tabla formato lista*/
-                       $crud -> set_relation ('formato_id' , 'formatolista' , 'nombre_formato' ) ;
+                       $crud -> set_relation ('formatoLista_id_formato' , 'formatolista' , 'nombre_formato' ) ;
                         
                      //---------------------------------------------------------------------------      
-                         
+                        
 			/* Asignamos el idioma español */
 			$crud->set_language('spanish');
 
@@ -78,18 +75,18 @@ class Formato_legalizacion extends CI_Controller  {
 			$crud->required_fields(	
                                 'id_formato_legalizacion',
 				'documentos_legalizacion', 
-				'formato_id'
+				'formatoLista_id_formato'
                             );
 
 			/* Aqui le indicamos que campos deseamos mostrar */
 			$crud->columns(
                                 'id_formato_legalizacion',
 				'documentos_legalizacion', 
-				'formato_id'
+				'formatoLista_id_formato'
                             );
-                        $crud->display_as('id_formato_legalizacion','identificador')
-                             ->display_as('documentos_legalizacion','documentos')
-                             ->display_as('fecha_formato','fecha');
+                      $crud->display_as('id_formato_legalizacion','Identificador')
+                           ->display_as('documentos_legalizacion','Documentos')
+                           ->display_as('formatoLista_id_formato','Formato lista');
 			
 			/* Generamos la tabla */
 			$output = $crud->render();

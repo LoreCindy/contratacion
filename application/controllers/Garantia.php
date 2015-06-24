@@ -38,9 +38,6 @@ class Garantia extends CI_Controller {
 		
 	}
 
-
-	
-
 	/*
 	 * 
  	 **/
@@ -62,26 +59,17 @@ class Garantia extends CI_Controller {
 
                          $crud->set_primary_key('idGarantia','garantia');
                                 //('codigoBPID','Proyecto');
-                       //-------------------------------------------------------------------                       
-                           /* aqui indicamos la llave primaria de la tabla relacion  */
-                        //  $crud->set_primary_key('id_formato','formatolista');
                         
-                        /* aqui indicamos las relaciones de la tabla formato lista*/
-                      // $crud -> set_relation ('formato_id' , 'formatolista' , 'nombre_formato' ) ;
+                         //-------------------------------------------------------------------------------    
+                         $crud->set_primary_key('id_formato_legalizacion','formato_legalizacion');
                         
-                         
-                         //----------------------------------------------------------------------------------    
-                         $crud->set_primary_key('id_lista_legalizacion','listalegalizacion');
-                        
-                         $crud -> set_relation ('lista_legalizacion_id' , 'listalegalizacion' , 'supervisor') ;
+                         $crud -> set_relation ('formato_legalizacion_id_formato_legalizacion' , 'formato_legalizacion' , 'documentos_legalizacion') ;
                          
                      //---------------------------------------------------------------------------      
-                         $crud->set_primary_key('idTipo','tipo');
-                         $crud -> set_relation ('Tipo_idTipo' , 'tipo' , 'nombre_tipo') ;
                          
                       //-------------------------------------------------------------
                           $crud->set_primary_key('idDocumento','documento');
-                           $crud -> set_relation ('Documento_idDocumento' , 'documento' , 'nombre_Documento') ;
+                          $crud -> set_relation ('Documento_idDocumento' , 'documento' , 'nombre_Documento') ;
                          
                          
 			/* Asignamos el idioma español */
@@ -91,8 +79,7 @@ class Garantia extends CI_Controller {
 			$crud->required_fields(	
                                 'idGarantia',
 				'descripcion_documento', 
-				'lista_legalizacion_id',
-                                'Tipo_idTipo',
+				'TipoGarantia',
                                 'Documento_idDocumento',
                                 'aseguradora',
                                 'numero_garantia',
@@ -100,15 +87,16 @@ class Garantia extends CI_Controller {
                                 'tiempo_año',
                                 'valor',
                                 'vigencia',
-                                'Aplica'
+                                'Aplica',
+                                'revision_id_revision',
+                                'formato_legalizacion_id_formato_legalizacion'
                             );
 
 			/* Aqui le indicamos que campos deseamos mostrar */
 			$crud->columns(
                                 'idGarantia',
 				'descripcion_documento', 
-				'lista_legalizacion_id',
-                                'Tipo_idTipo',
+				'TipoGarantia',
                                 'Documento_idDocumento',
                                 'aseguradora',
                                 'numero_garantia',
@@ -116,11 +104,19 @@ class Garantia extends CI_Controller {
                                 'tiempo_año',
                                 'valor',
                                 'vigencia',
-                                'Aplica'
+                                'Aplica',
+                                'revision_id_revision',
+                                'formato_legalizacion_id_formato_legalizacion'
                             );
-			$crud->display_as('idGarantia','identificador')
-                               ->display_as('descripcion_documento','Descripcion del documento')
-                               ->display_as('lista_legalizacion_id','legalizacion');
+			$crud->display_as('idGarantia','Identificador')
+                                ->display_as('descripcion_documento','Descripcion del documento')
+                                ->display_as('TipoGarantia','Tipo Garantia')
+                                ->display_as('Documento_idDocumento','Documento')
+                                ->display_as('numero_garantia','N° Garantia')
+                                ->display_as('tiempo_año','Año')
+                                ->display_as('revision_id_revision','Nombre revisión')
+                                ->display_as('formato_legalizacion_id_formato_legalizacion','Formato Legalización');
+                             
 			/* Generamos la tabla */
 			$output = $crud->render();
 			

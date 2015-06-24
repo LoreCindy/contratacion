@@ -35,11 +35,7 @@ class Documento extends CI_Controller {
 		$this->load->js('assets/themes/default/hero_files/bootstrap-transition.js');
 		$this->load->js('assets/themes/default/hero_files/bootstrap-collapse.js');
 
-		
 	}
-
-
-	
 
 	/*
 	 * 
@@ -66,12 +62,9 @@ class Documento extends CI_Controller {
 			/* Asignamos el idioma español */
 			$crud->set_language('spanish');
                         
-                        //-----------------------------------------------------------
-                         $crud->set_primary_key('id_formato_legalizacion','formato_legalizacion');
-                         $crud -> set_relation ('formato_legalizacion_id' , 'formato_legalizacion' , 'documentos_legalizacion') ;
                         
                         //---------------------------------------------------------
-                         
+                        
                          /* aqui indicamos el buscador de un archivo en pdf */
                          $crud->set_field_upload('archivo', 'assets/uploads/files');
 
@@ -81,7 +74,9 @@ class Documento extends CI_Controller {
 				'nombre_Documento', 
 				'archivo',
                                 'fecha',
-                                'formato_legalizacion_id'
+                                'supervisor',
+                                'DAC',
+                                'Observaciones'
                             );
 
 			/* Aqui le indicamos que campos deseamos mostrar */
@@ -90,12 +85,14 @@ class Documento extends CI_Controller {
 				'nombre_Documento', 
 				'archivo',
                                 'fecha',
-                                'formato_legalizacion_id'
+                                'supervisor',
+                                'DAC',
+                                'Observaciones'
                             );
 			
-                         $crud->display_as('idDocumento','identificador')
-                               ->display_as('nombre_Documento','Nombre del documento')
-                               ->display_as('formato_legalizacion_id','Tipo Documento');
+                         $crud->display_as('idDocumento','Identificador')
+                               ->display_as('nombre_Documento','Nombre del documento');
+                            
 			/* Generamos la tabla */
 			$output = $crud->render();
 			

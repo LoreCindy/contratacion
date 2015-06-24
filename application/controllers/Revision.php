@@ -37,9 +37,6 @@ class Revision extends CI_Controller{
 		
 	}
 
-
-	
-
 	/*
 	 * 
  	 **/
@@ -63,10 +60,10 @@ class Revision extends CI_Controller{
                                 //('codigoBPID','Proyecto');
                    //------------------------------------------------------------------------------                           
                            /* aqui indicamos la llave primaria de la tabla relacion  */
-                          $crud->set_primary_key('id_formato','formatolista');
+                        //  $crud->set_primary_key('id_formato','formatolista');
                         
                         /* aqui indicamos las relaciones de la tabla formato lista*/
-                       $crud -> set_relation ('formato_id' , 'formatolista' , 'nombre_formato' ) ;
+                     //  $crud -> set_relation ('formato_id' , 'formatolista' , 'nombre_formato' ) ;
                     //----------------------------------------------------------------------------------    
                       
                        //------------------------------------------------------------------------------                           
@@ -76,9 +73,9 @@ class Revision extends CI_Controller{
                         /* aqui indicamos las relaciones de la tabla formato lista*/
                        $crud -> set_relation ('Proyecto_id_proyecto' , 'proyecto' , 'nombre_proyecto' ) ;
                     //----------------------------------------------------------------------------------    
-                         $crud->set_primary_key('id_lista_legalizacion','listalegalizacion');
+                        $crud->set_primary_key('id_formato','formatolista');
                         
-                         $crud -> set_relation ('lista_legalizacion_id' , 'listalegalizacion' , 'supervisor') ;
+                    $crud -> set_relation ('formatoLista_id_formato' , 'formatolista' , 'nombre_formato') ;
                          
                        
 			/* Asignamos el idioma español */
@@ -88,29 +85,25 @@ class Revision extends CI_Controller{
 			$crud->required_fields(	
                                 'id_revision',
                                 'nombre_revision',
-				'dependencia_responsable', 
-				'informacionGeneral',
-                                'lista_legalizacion_id',
-                                'obdervaciones',
-                                'formato_id',
-                                'Proyecto_id_proyecto'
+				'obdervaciones',
+                                'Proyecto_id_proyecto',
+                                'formatoLista_id_formato'
                             );
 
 			/* Aqui le indicamos que campos deseamos mostrar */
 			$crud->columns( 
-                                 'id_revision',
+                               'id_revision',
                                 'nombre_revision',
-				'dependencia_responsable', 
-				'informacionGeneral',
-                                'lista_legalizacion_id',
-                                'obdervaciones',
-                                'formato_id',
-                                'Proyecto_id_proyecto'
+				'obdervaciones',
+                                'Proyecto_id_proyecto',
+                                'formatoLista_id_formato'
                             );
                         
                         $crud->display_as('id_revision','identificador')
+                             ->display_as('nombre_revision','Nombre revision')
+                             ->display_as('obdervaciones','Observaciones')
                              ->display_as('Proyecto_id_proyecto','Proyecto')
-                             ->display_as('lista_legalizacion_id','legalizacion');
+                        ->display_as('formatoLista_id_formato','Formato Lista');
 			
 			/* Generamos la tabla */
 			$output = $crud->render();
@@ -125,7 +118,5 @@ class Revision extends CI_Controller{
 		}
 	}
 }
-
-
 
 ?>

@@ -38,9 +38,6 @@ class Tipo extends CI_Controller  {
 		
 	}
 
-
-	
-
 	/*
 	 * 
  	 **/

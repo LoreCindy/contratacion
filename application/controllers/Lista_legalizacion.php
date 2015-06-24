@@ -38,9 +38,6 @@ class Lista_legalizacion extends CI_Controller  {
 		
 	}
 
-
-	
-
 	/*
 	 * 
  	 **/

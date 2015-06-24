@@ -6,8 +6,7 @@
  */
 class Fecha extends CI_Controller {
     function __construct() 
-	{
-		
+	{		
 		parent::__construct();
 
 		/* Cargamos la base de datos */
@@ -31,9 +30,6 @@ class Fecha extends CI_Controller {
 
 		
 	}
-
-
-	
 
 	/*
 	 * 
@@ -60,22 +56,39 @@ class Fecha extends CI_Controller {
 			/* Asignamos el idioma español */
 			$crud->set_language('spanish');
 
+                        //-------------------------------------------------------------------                       
+                           /* aqui indicamos la llave primaria de la tabla relacion  */
+                            $crud->set_primary_key('id_revision','revision');
+                        
+                        /* aqui indicamos las relaciones de la tabla formato lista*/
+                       $crud -> set_relation ('revision_id_revision' , 'revision' , 'nombre_revision' ) ;
+                        
 			/* Aqui le decimos a grocery que estos campos son obligatorios */
 			$crud->required_fields(	
                                 'idFecha',
 				'nombre_fecha', 
-				'fecha'
+				'fecha',
+                                'nombreResponsable',
+                                'dependenciaResponsable',
+                                'revision_id_revision'
                               
                             );
 
 			/* Aqui le indicamos que campos deseamos mostrar */
 			$crud->columns(
-                                 'idFecha',
+                                'idFecha',
 				'nombre_fecha', 
-				'fecha'
+				'fecha',
+                                'nombreResponsable',
+                                'dependenciaResponsable',
+                                'revision_id_revision'
                             );
-                        $crud->display_as('idFecha','identificador')
-                               ->display_as('nombre_fecha','Estado');
+                        $crud->display_as('idFecha','Identificador')
+                               ->display_as('nombre_fecha','Estado')
+                                ->display_as('nombreResponsable','Nombre Responsable')
+                                ->display_as('dependenciaResponsable','Dependencia Responsable')
+                                 ->display_as('revision_id_revision','Revisión');
+                        
 			
 			/* Generamos la tabla */
 			$output = $crud->render();

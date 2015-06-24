@@ -38,9 +38,6 @@ class Datos_generales extends CI_Controller {
 		
 	}
 
-
-	
-
 	/*
 	 * 
  	 **/
@@ -60,14 +57,14 @@ class Datos_generales extends CI_Controller {
 			/* Le asignamos un nombre */
 			$crud->set_subject('Datos_generales');
 
-                         $crud->set_primary_key('id_datos_generales','datos_generales');
+                         $crud->set_primary_key('id_datos_generale','datos_generales');
                                 //('codigoBPID','Proyecto');
                          
                            /* aqui indicamos la llave primaria de la tabla relacion  */
-                          $crud->set_primary_key('id_formato','formatolista');
+                       $crud->set_primary_key('id_formato','formatolista');
                         
                         /* aqui indicamos las relaciones de la tabla formato lista*/
-                       $crud -> set_relation ('formato_id' , 'formatolista' , 'nombre_formato' ) ;
+                      $crud -> set_relation ('formatoLista_id_formato' , 'formatolista' , 'nombre_formato' ) ;
                         
                                               
 			/* Asignamos el idioma español */
@@ -77,21 +74,21 @@ class Datos_generales extends CI_Controller {
 			$crud->required_fields(	
                                 'id_datos_generales',
 				'nombre_dato', 
-				'formato_id'
+				'formatoLista_id_formato'
                             );
 
 			/* Aqui le indicamos que campos deseamos mostrar */
 			$crud->columns( 
                                 'id_datos_generales',
 				'nombre_dato', 
-				'formato_id'
+				'formatoLista_id_formato'
                             );
                         
-                        $crud->display_as('id_datos_generales','identificador')
-                             ->display_as('formato_id','Tipo Lista Chequeo');
+                      $crud->display_as('id_datos_generales','identificador')
+                              ->display_as('nombre_dato','Nombre Dato')
+                        ->display_as('formatoLista_id_formato','Formato Lista');
                              
-			
-			/* Generamos la tabla */
+						/* Generamos la tabla */
 			$output = $crud->render();
 			
 			/* La cargamos en la vista situada en 

@@ -35,11 +35,8 @@ class Proyectos extends CI_Controller {
 		$this->load->js('assets/themes/default/hero_files/bootstrap-transition.js');
 		$this->load->js('assets/themes/default/hero_files/bootstrap-collapse.js');
 
-		
 	}
 
-
-	
 
 	/*
 	 * 
