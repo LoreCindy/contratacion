@@ -83,7 +83,7 @@ class Proyectos extends CI_Controller {
 			$crud->display_as('nombre_proyecto','Nombre del proyecto')
                              ->display_as('codigoBPID','Codigo BPID')
                              ->display_as('nombre_modalidad','Nombre de la modalidad')
-                             ->display_as('nombre_tipocontratacion','Tipo de contratacion');
+                             ->display_as('nombre_tipocontratacion','Tipo Contratacion');
                         
 			/* Generamos la tabla */
 			$output = $crud->render();
