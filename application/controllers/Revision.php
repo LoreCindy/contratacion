@@ -107,6 +107,10 @@ class Revision extends CI_Controller{
                                 'formato_id',
                                 'Proyecto_id_proyecto'
                             );
+                        
+                        $crud->display_as('id_revision','identificador')
+                             ->display_as('Proyecto_id_proyecto','Proyecto')
+                             ->display_as('lista_legalizacion_id','legalizacion');
 			
 			/* Generamos la tabla */
 			$output = $crud->render();
