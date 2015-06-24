@@ -87,6 +87,9 @@ class Formato_legalizacion extends CI_Controller  {
 				'documentos_legalizacion', 
 				'formato_id'
                             );
+                        $crud->display_as('id_formato_legalizacion','identificador')
+                             ->display_as('documentos_legalizacion','documentos')
+                             ->display_as('fecha_formato','fecha');
 			
 			/* Generamos la tabla */
 			$output = $crud->render();

@@ -118,7 +118,9 @@ class Garantia extends CI_Controller {
                                 'vigencia',
                                 'Aplica'
                             );
-			
+			$crud->display_as('idGarantia','identificador')
+                               ->display_as('descripcion_documento','Descripcion del documento')
+                               ->display_as('lista_legalizacion_id','legalizacion');
 			/* Generamos la tabla */
 			$output = $crud->render();
 			

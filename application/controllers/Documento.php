@@ -93,6 +93,9 @@ class Documento extends CI_Controller {
                                 'formato_legalizacion_id'
                             );
 			
+                         $crud->display_as('idDocumento','identificador')
+                               ->display_as('nombre_Documento','Nombre del documento')
+                               ->display_as('formato_legalizacion_id','Tipo Documento');
 			/* Generamos la tabla */
 			$output = $crud->render();
 			

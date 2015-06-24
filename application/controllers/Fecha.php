@@ -74,6 +74,8 @@ class Fecha extends CI_Controller {
 				'nombre_fecha', 
 				'fecha'
                             );
+                        $crud->display_as('idFecha','identificador')
+                               ->display_as('nombre_fecha','Estado');
 			
 			/* Generamos la tabla */
 			$output = $crud->render();

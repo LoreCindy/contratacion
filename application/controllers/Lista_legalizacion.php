@@ -93,10 +93,14 @@ class Lista_legalizacion extends CI_Controller  {
 				'observaciones',
                                 'NombreRecibe'.
                                 'nombreDependencia',
-                                'Fecha_idFecha',
-                                'Contratacion_idContratacion'
+                                'Fecha_idFecha'
                             );
-			
+                        
+                        $crud->display_as('id_lista_legalizacion','identificador')
+                               ->display_as('supervisor','Nombre del supervisor')
+                               ->display_as('NombreRecibe','Nombre de quien Recibe')
+                               ->display_as('nombreDependencia','Nombre de la dependencia')
+                               ->display_as('Fecha_idFecha','');
 			/* Generamos la tabla */
 			$output = $crud->render();
 			
