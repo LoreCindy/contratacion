@@ -2,6 +2,8 @@
 <html>
 <head>
 	<meta charset="utf-8" />
+        
+        
         <a href="<?php echo site_url('usuarios'); ?>">Iniciar Sesión</a>
 	<title>Registrar Nuevo Usuario - Sourcezilla</title>
 <?php 
