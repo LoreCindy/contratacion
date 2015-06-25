@@ -17,7 +17,7 @@ class Fecha extends CI_Controller {
 
 		/* Añadimos el helper al controlador */
 		$this->load->helper('url');
-	$this->load->helper('url');
+	
                 $this->_init();
 	}
         
