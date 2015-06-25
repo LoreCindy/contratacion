@@ -36,10 +36,11 @@
 
     <!-- Le styles -->
     <link href="<?php echo base_url(); ?>assets/themes/default/hero_files/bootstrap.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/themes/default/hero_files/bootstrap-dropdown.js" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/themes/default/hero_files/bootstrap-responsive.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/themes/default/css/general.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/themes/default/css/custom.css" rel="stylesheet">
-
+    
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -128,15 +129,16 @@
               <li class="active"><a href="<?php echo site_url('usuarios'); ?>">Inicio</a></li>
                <li><a href="<?php echo site_url('proyectos'); ?>">Proyecto</a></li>
                 <li><a href="<?php echo site_url('formato_lista'); ?>">Formato Lista</a></li>
-              <li><a href="<?php echo site_url('revision'); ?>">Revision</a></li>
-              <li><a href="<?php echo site_url('datos_generales'); ?>">Datos Generales</a></li>
-              <li><a href="<?php echo site_url('formato_legalizacion'); ?>">Formato Legalizacion</a></li>
+ 
+                <li><a href="<?php echo site_url('revision'); ?>">Revision</a></li>
                 <li><a href="<?php echo site_url('documento'); ?>">Documento</a></li>
                 <li><a href="<?php echo site_url('fecha'); ?>">Fecha</a></li>
                 <li><a href="<?php echo site_url('garantia'); ?>">Garantia</a></li>
-              <li><a href="<?php echo site_url('example/example_4'); ?>">Example 4</a></li>
+           
             </ul>
+            
           </div><!--/.nav-collapse -->
+          
         </div>
       </div>
     </div>
@@ -160,4 +162,5 @@
       </footer>
 
     </div> <!-- /container -->
+   
 </body></html>

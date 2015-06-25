@@ -31,6 +31,7 @@ a:hover
 <center><h1>Administración de Formato Lista</h1></center>
     <div>
 		<?php echo $output; ?>
+                <li><a href="<?php echo site_url('datos_generales'); ?>">Datos Generales</a></li>
     </div>
 </body>
 </html>
