@@ -57,7 +57,7 @@ class Datos_generales extends CI_Controller {
 			/* Le asignamos un nombre */
 			$crud->set_subject('Datos_generales');
 
-                         $crud->set_primary_key('id_datos_generale','datos_generales');
+                         $crud->set_primary_key('id_datos_generales','datos_generales');
                                 //('codigoBPID','Proyecto');
                          
                            /* aqui indicamos la llave primaria de la tabla relacion  */
