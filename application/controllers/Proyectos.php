@@ -69,7 +69,7 @@ class Proyectos extends CI_Controller {
 				'nombre_proyecto', 
 				'codigoBPID',
                                 'nombre_modalidad',
-                                'nombre_tipocontratacion'
+                                'nombre_tipoContratacion'
                             );
 
 			/* Aqui le indicamos que campos deseamos mostrar */
@@ -77,14 +77,20 @@ class Proyectos extends CI_Controller {
 				'nombre_proyecto', 
 				'codigoBPID',
                                 'nombre_modalidad',
-                                'nombre_tipocontratacion'
+                                'nombre_tipoContratacion'
                             );
                         
 			$crud->display_as('nombre_proyecto','Nombre del proyecto')
                              ->display_as('codigoBPID','Codigo BPID')
                              ->display_as('nombre_modalidad','Nombre de la modalidad')
-                             ->display_as('nombre_tipocontratacion','Tipo Contratacion');
+                             ->display_as('nombre_tipoContratacion','Tipo Contratacion');
                         
+                        $crud->field_type('nombre_modalidad','dropdown',
+                        array('1' => 'Seleccion abreviada', '2' => 'Concurso de meritos','3' => 'Licitacion publica' , '4' => 'Contratacion minima cuantia', '5' => 'Regimen especial', '6' => 'Contratacion directa') );
+			
+                         $crud->field_type('nombre_tipoContratacion','dropdown',
+                        array('1' => 'Convenio', '2' => 'Contrato') );
+			
 			/* Generamos la tabla */
 			$output = $crud->render();
 			

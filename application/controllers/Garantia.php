@@ -117,7 +117,11 @@ class Garantia extends CI_Controller {
                                 ->display_as('revision_id_revision','Nombre revisión')
                                 ->display_as('formato_legalizacion_id_formato_legalizacion','Formato Legalización');
                              
-			/* Generamos la tabla */
+                              
+                        $crud->field_type('TipoGarantia','dropdown',
+                        array('1' => 'Concomitante de la garantia', '2' => 'seguridad social','3' => 'certificado de salud' , '4' => 'parafiscales', '5' => 'cuentas bancarias', '6' => 'otros') );
+			
+                        /* Generamos la tabla */
 			$output = $crud->render();
 			
 			/* La cargamos en la vista situada en 
