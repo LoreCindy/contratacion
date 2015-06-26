@@ -33,7 +33,7 @@ class Verificar_login extends CI_Controller{
    else
    {
      //Go to private area
-     redirect('usuarios', 'refresh');
+     redirect('home', 'refresh');
    }
  
  }
@@ -44,7 +44,7 @@ class Verificar_login extends CI_Controller{
    $usuario = $this->input->post('usuario');
  
    //query the database
-   $result = $this->user->login($usuario, $password);
+   $result = $this->usuarios_model->login($usuario, $password);
  
    if($result)
    {
@@ -52,8 +52,8 @@ class Verificar_login extends CI_Controller{
      foreach($result as $row)
      {
        $sess_array = array(
-         'id_usuario' => $row->id,
-         'uusuario' => $row->username
+         'id_usuario' => $row->id_usuario,
+         'usuario' => $row->usuario
        );
        $this->session->set_userdata('logged_in', $sess_array);
      }
