@@ -83,22 +83,35 @@ class Registro_usuario extends CI_Controller {
                                 'password',
                                 'email'
                             );
+                        
+                       /*esta linea permite convertir el campo en tipo password*/
+                       $crud->field_type('password', 'password');
+                       
+                       /*esta linea permite ocultar el listar y el boton de listar*/
+                       $crud->unset_list();
+                       $crud->unset_back_to_list();
                       
-			
 			/* Generamos la tabla */
 			$output = $crud->render();
 			
+                       
 			/* La cargamos en la vista situada en 
 			/applications/views/productos/administracion.php */
 			$this->load->view('registro_view', $output);
 			
 		}catch(Exception $e){
-			/* Si algo sale mal cachamos el error y lo mostramos */
-			show_error($e->getMessage().' --- '.$e->getTraceAsString());
-		}
+                    
+                        if($e->getCode() == 14) //The 14 is the code of the "You don't have permissions" error on grocery CRUD.
+                        {
+                            redirect(strtolower(__CLASS__).'/'.strtolower(__FUNCTION__).'/add');
+                        }
+                        else
+                        {
+                           /* Si algo sale mal cachamos el error y lo mostramos */
+                                 show_error($e->getMessage().' --- '.$e->getTraceAsString());
+                        }
+                }
 	}
-        
-       
 }
 
 ?>
