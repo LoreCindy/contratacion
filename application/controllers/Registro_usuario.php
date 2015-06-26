@@ -62,10 +62,11 @@ class Registro_usuario extends CI_Controller {
 			/* Asignamos el idioma español */
 			$crud->set_language('spanish');
 
+                        //  $crud->set_rules('password','buy Price','numeric');
                        
 			/* Aqui le decimos a grocery que estos campos son obligatorios */
 			$crud->required_fields(	
-                                'id_usuario',
+                            
 				'nombres_usuario', 
 				'apellidos_usuario',
                                 'usuario',
@@ -76,8 +77,7 @@ class Registro_usuario extends CI_Controller {
 
 			/* Aqui le indicamos que campos deseamos mostrar */
 			$crud->columns(
-                                  'id_usuario',
-				'nombres_usuario', 
+                                'nombres_usuario', 
 				'apellidos_usuario',
                                 'usuario',
                                 'password',
@@ -97,6 +97,8 @@ class Registro_usuario extends CI_Controller {
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
 		}
 	}
+        
+       
 }
 
 ?>

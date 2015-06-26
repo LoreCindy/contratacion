@@ -3,9 +3,10 @@
 <head>
 	<meta charset="utf-8" />
         
-        
-        <a href="<?php echo site_url('usuarios'); ?>">Iniciar Sesión</a>
+       
+       
 	<title>Registrar Nuevo Usuario - Sourcezilla</title>
+         <button onclick="location.href='usuarios'">Iniciar Sesión</button>  
 <?php 
 foreach($css_files as $file): ?>
 	<link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
