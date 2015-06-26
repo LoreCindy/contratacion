@@ -49,7 +49,9 @@ class Garantia extends CI_Controller {
 			$crud = new grocery_CRUD();
 
 			/* Seleccionamos el tema */
-			$crud->set_theme('flexigrid');
+			/*$crud->set_theme('flexigrid');*/
+                        
+                       $crud->set_theme('bootstrap');
 
 			/* Seleccionmos el nombre de la tabla de nuestra base de datos*/
 			$crud->set_table('garantia');
@@ -70,6 +72,9 @@ class Garantia extends CI_Controller {
                       //-------------------------------------------------------------
                           $crud->set_primary_key('idDocumento','documento');
                           $crud -> set_relation ('Documento_idDocumento' , 'documento' , 'nombre_Documento') ;
+                         
+                          $crud->set_primary_key('id_revision','revision');
+                          $crud -> set_relation ('revision_id_revision' , 'revision' , 'nombre_revision') ;
                          
                          
 			/* Asignamos el idioma español */
@@ -121,6 +126,13 @@ class Garantia extends CI_Controller {
                         $crud->field_type('TipoGarantia','dropdown',
                         array('1' => 'Concomitante de la garantia', '2' => 'seguridad social','3' => 'certificado de salud' , '4' => 'parafiscales', '5' => 'cuentas bancarias', '6' => 'otros') );
 			
+                        $crud->field_type('Aplica','dropdown',
+                        array('1' => 'Si', '2' => 'No') );
+                        $crud->set_rules('numero_garantia','N° Garantia','numeric');
+                        $crud->set_rules('porcentaje','Porcentaje','numeric');
+                        $crud->set_rules('tiempo_año','Año','numeric');
+                        $crud->set_rules('valor','Valor','numeric');
+                     
                         /* Generamos la tabla */
 			$output = $crud->render();
 			

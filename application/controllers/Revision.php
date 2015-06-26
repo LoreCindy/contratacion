@@ -56,7 +56,7 @@ class Revision extends CI_Controller{
 			/* Le asignamos un nombre */
 			$crud->set_subject('Revision');
 
-                         $crud->set_primary_key('id_revision','revision');
+                        $crud->set_primary_key('id_revision','revision');
                                 //('codigoBPID','Proyecto');
                    //------------------------------------------------------------------------------                           
                            /* aqui indicamos la llave primaria de la tabla relacion  */

@@ -89,7 +89,8 @@ class Fecha extends CI_Controller {
                                 ->display_as('dependenciaResponsable','Dependencia Responsable')
                                  ->display_as('revision_id_revision','Revisión');
                         
-			
+			$crud->field_type('nombre_fecha','dropdown',
+                        array('1' => 'Recibido', '2' => 'Devolucion') );
 			/* Generamos la tabla */
 			$output = $crud->render();
 			
