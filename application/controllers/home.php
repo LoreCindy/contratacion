@@ -1,18 +1,8 @@
-<?php
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of panel
- *
- * @author cindy
- */
-class panel extends CI_Controller {
-    
-   function __construct()
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+session_start(); //we need to call PHP's session object to access it through CI
+class Home extends CI_Controller {
+ 
+ function __construct()
  {
    parent::__construct();
  }
@@ -22,13 +12,13 @@ class panel extends CI_Controller {
    if($this->session->userdata('logged_in'))
    {
      $session_data = $this->session->userdata('logged_in');
-     $data['usuario'] = $session_data['usuario'];
-     $this->load->view('proyecto', $data);
+     $data['username'] = $session_data['username'];
+     $this->load->view('home_view', $data);
    }
    else
    {
      //If no session, redirect to login page
-     redirect('home_view', 'refresh');
+     redirect('login', 'refresh');
    }
  }
  

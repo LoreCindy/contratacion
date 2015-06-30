@@ -51,12 +51,12 @@ class Registro_usuario extends CI_Controller {
 			$crud->set_theme('flexigrid');
 
 			/* Seleccionmos el nombre de la tabla de nuestra base de datos*/
-			$crud->set_table('usuario');
+			$crud->set_table('users');
 
 			/* Le asignamos un nombre */
-			$crud->set_subject('Usuario');
+			$crud->set_subject('users');
 
-                         $crud->set_primary_key('id_usuario','usuario');
+                         $crud->set_primary_key('id','users');
                                 //('codigoBPID','Proyecto');
                                               
 			/* Asignamos el idioma español */
@@ -66,22 +66,18 @@ class Registro_usuario extends CI_Controller {
                        
 			/* Aqui le decimos a grocery que estos campos son obligatorios */
 			$crud->required_fields(	
-                            
-				'nombres_usuario', 
-				'apellidos_usuario',
-                                'usuario',
-                                'password',
-                                'email'
+                          
+				'username',
+                               'password'
+                               
                               
                             );
 
 			/* Aqui le indicamos que campos deseamos mostrar */
 			$crud->columns(
-                                'nombres_usuario', 
-				'apellidos_usuario',
-                                'usuario',
-                                'password',
-                                'email'
+                              
+				'username',
+                               'password'
                             );
                         
                        /*esta linea permite convertir el campo en tipo password*/

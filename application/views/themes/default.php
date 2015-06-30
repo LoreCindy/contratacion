@@ -126,7 +126,7 @@
           <a class="brand" href="<?php echo site_url(); ?>">&nbsp;&nbsp;Contratación</a>
           <div style="height: 0px;" class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="<?php echo site_url('usuarios'); ?>">Inicio</a></li>
+              <li class="active"><a href="<?php echo site_url('login'); ?>">Inicio</a></li>
                <li><a href="<?php echo site_url('proyectos'); ?>">Proyecto</a></li>
                 <li><a href="<?php echo site_url('formato_lista'); ?>">Formato Lista</a></li>
  
