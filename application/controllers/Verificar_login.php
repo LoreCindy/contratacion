@@ -52,17 +52,17 @@ class Verificar_login extends CI_Controller{
      foreach($result as $row)
      {
        $sess_array = array(
-         'id_usuario' => $row->id_usuario,
-         'usuario' => $row->usuario
+         'usuario' => $row->usuario,
+         'password' => $row->password
        );
-       $this->session->set_userdata('logged_in', $sess_array);
+       $this->session->set_userdata('logged_in',$sess_array);
      }
      return TRUE;
    }
    
    else
    {
-     $this->form_validation->set_message('check_database', 'Invalid username or password');
+     $this->form_validation->set_message('revisar la base de datos', 'usuario y password invalidos');
      return false;
    }
  }

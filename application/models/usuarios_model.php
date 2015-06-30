@@ -8,7 +8,7 @@ class usuarios_model  extends CI_Model {
     // Insertar los datos de registro en la base de datos
  function login($usuario, $password)
  {
-   $this -> db -> select('id_usuario, usuario, password');
+   $this -> db -> select('id_usuario,nombres_usuario, apellidos_usuario, usuario, password, email');
    $this -> db -> from('usuario');
    $this -> db -> where('usuario', $usuario);
    $this -> db -> where('password',$password);

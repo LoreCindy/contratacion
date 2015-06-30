@@ -6,7 +6,7 @@
        
        
 	<title>Registrar Nuevo Usuario - Sourcezilla</title>
-         <button onclick="location.href='usuarios'">Iniciar Sesión</button>  
+          
 <?php 
 foreach($css_files as $file): ?>
 	<link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
