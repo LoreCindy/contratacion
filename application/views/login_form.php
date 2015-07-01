@@ -7,7 +7,7 @@ header("location: http://localhost:8080/PContratacion/index.php/user_authenticat
 ?>
 <head>
 <title>Login Form</title>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/style.css">
+<link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Open+Sans+Condensed:300|Raleway' rel='stylesheet' type='text/css'>
 </head>
 <body>

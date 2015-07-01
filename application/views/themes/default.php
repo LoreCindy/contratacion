@@ -145,7 +145,7 @@ header("location: login");
                <?php
 echo "Hello <b id='welcome'><i>" . $username . "</i> !</b>";
 ?>
-<b id="logout"><a href="logout">Logout</a></b>
+<b id="logout"><a href="http://localhost:8080/PContratacion/index.php/user_authentication/logout">Logout</a></b>
             
             </ul>
                  
