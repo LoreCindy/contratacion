@@ -141,16 +141,17 @@ header("location: login");
                 <li><a href="<?php echo site_url('documento'); ?>">Documento</a></li>
                 <li><a href="<?php echo site_url('fecha'); ?>">Fecha</a></li>
                 <li><a href="<?php echo site_url('garantia'); ?>">Garantia</a></li>
+               
              
-               <?php
-echo "Hello <b id='welcome'><i>" . $username . "</i> !</b>";
-?>
-<b id="logout"><a href="logout">Logout</a></b>
+               
+
             
             </ul>
-                 
+                <li><b id="logout"><a href="logout">Logout</a></b></li>  
           </div><!--/.nav-collapse -->
-          
+          <?php
+echo "Hello <b id='welcome'><i>" . $username . "</i> !</b>";
+?>
         </div>
       </div>
     </div>

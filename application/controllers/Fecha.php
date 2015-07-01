@@ -27,8 +27,6 @@ class Fecha extends CI_Controller {
                 $this->load->js('assets/themes/default/js/jquery-1.9.1.min.js');
 		$this->load->js('assets/themes/default/hero_files/bootstrap-transition.js');
 		$this->load->js('assets/themes/default/hero_files/bootstrap-collapse.js');
-
-		
 	}
 
 	/*
@@ -104,7 +102,5 @@ class Fecha extends CI_Controller {
 		}
 	}
 }
-
-
 
 ?>

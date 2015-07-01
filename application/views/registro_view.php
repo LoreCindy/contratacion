@@ -2,11 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-        
-       
-       
-	<title>Registrar Nuevo Usuario - Sourcezilla</title>
-          
+	<title>Registro Usuario- Sourcezilla</title>
 <?php 
 foreach($css_files as $file): ?>
 	<link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
@@ -32,11 +28,9 @@ a:hover
 </style>
 </head>
 <body>
-<center><h1>Registrar Nuevo Usuario</h1></center>
+<center><h1>Registro Usuario</h1></center>
     <div>
 		<?php echo $output; ?>
     </div>
-
-
 </body>
 </html>
