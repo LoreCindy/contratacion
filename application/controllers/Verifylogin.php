@@ -6,9 +6,9 @@ class VerifyLogin extends CI_Controller {
  {
    parent::__construct();
    $this->load->model('user','',TRUE);
-  $this->_init();
+ // $this->_init();
  }
- private function _init()
+/* private function _init()
 	{
 		$this->output->set_template('default');
                 $this->load->js('assets/themes/default/js/jquery-1.9.1.min.js');
@@ -16,14 +16,14 @@ class VerifyLogin extends CI_Controller {
 		$this->load->js('assets/themes/default/hero_files/bootstrap-collapse.js');
 
 		
-	}
+	}*/
  function index()
  {
    //This method will have the credentials validation
    $this->load->library('form_validation');
  
-   $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
-   $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|callback_check_database');
+   $this->form_validation->set_rules('username', 'Username', 'required');
+   $this->form_validation->set_rules('password', 'Password', 'required');
  
    if($this->form_validation->run() == FALSE)
    {

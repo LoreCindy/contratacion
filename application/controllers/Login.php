@@ -6,13 +6,13 @@ class Login extends CI_Controller {
  {
    parent::__construct();
    
-   $this->load->library('grocery_crud');
+                 $this->load->library('grocery_crud');
 
 		/* Añadimos el helper al controlador */
 		$this->load->helper('url');
-                $this->_init();
+              //  $this->_init();
  }
- private function _init()
+ /*private function _init()
 	{
 		$this->output->set_template('default');
                 $this->load->js('assets/themes/default/js/jquery-1.9.1.min.js');
@@ -20,7 +20,7 @@ class Login extends CI_Controller {
 		$this->load->js('assets/themes/default/hero_files/bootstrap-collapse.js');
 
 		
-	}
+	}*/
  function index()
  {
    $this->load->helper(array('form'));

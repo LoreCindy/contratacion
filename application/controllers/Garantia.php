@@ -137,7 +137,7 @@ class Garantia extends CI_Controller {
 			
 			/* La cargamos en la vista situada en 
 			/applications/views/productos/administracion.php */
-			$this->load->view('proyectos/formato_legalizacion', $output);
+			$this->load->view('proyectos/garantia', $output);
 			
 		}catch(Exception $e){
 			/* Si algo sale mal cachamos el error y lo mostramos */

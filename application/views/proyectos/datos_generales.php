@@ -31,8 +31,8 @@ a:hover
 <center><h1>Administración de Datos Generales</h1></center>
     <div>
 		<?php echo $output; ?>
-                 
-              <li><a href="<?php echo site_url('formato_legalizacion'); ?>">Formato Legalizacion</a></li>
+                  <button onclick="location.href='formato_legalizacion'">Formato legalización</button>  
+             
     </div>
 </body>
 </html>

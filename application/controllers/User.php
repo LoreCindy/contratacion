@@ -19,10 +19,10 @@ class Usuarios extends CI_Controller {
               //  $This ->load ->library('sesión') ;
                 $this->load->model('usuarios_model');
 	
-                $this->_init();
+              //  $this->_init();
 	}
         
-       private function _init()
+      /* private function _init()
 	{
 		$this->output->set_template('default');
                 $this->load->js('assets/themes/default/js/jquery-1.9.1.min.js');
@@ -30,7 +30,7 @@ class Usuarios extends CI_Controller {
 		$this->load->js('assets/themes/default/hero_files/bootstrap-collapse.js');
 
 		
-	}
+	}*/
 
         function index()
         {

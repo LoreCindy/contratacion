@@ -5,7 +5,7 @@
  </head>
  <body>
    <h1>Inicio de Sesión</h1>
-   <?php echo validation_errors();?>
+    <?php echo validation_errors();?>
    <?php echo form_open('verifylogin');?>
      <label for="username">Username:</label>
      <input type="text" size="20" id="username" name="username"/>
@@ -14,7 +14,7 @@
      <input type="password" size="20" id="passowrd" name="password"/>
      <br/>
      <input type="submit" value="Entrar"/>
-    <a href="<?php echo site_url('registro_usuario'); ?>">Registrarme</a>
+    <a href="<?php echo site_url('registro_usuario');?>">Registrarme</a>
    </form>
  </body>
 </html>
