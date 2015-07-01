@@ -142,7 +142,7 @@ header("location: login");
                 <li><a href="<?php echo site_url('fecha'); ?>">Fecha</a></li>
                 <li><a href="<?php echo site_url('garantia'); ?>">Garantia</a></li>
                  
-                <?php
+            <?php
             echo "Hello <b id='welcome'><i>" . $username . "</i> !</b>";
             ?>
             <li><b id="logout"><a href="logout">Logout</a></b></li> 
