@@ -123,10 +123,10 @@
             <span class="icon-bar"></span>
           </a>
           <img src="<?php echo base_url(); ?>assets/themes/default/images/gober.png" style="float:left;margin-top:5px;z-index:5" alt="logo"/>
-          <a class="brand" href="<?php echo site_url(); ?>">&nbsp;&nbsp;Contratación</a>
+          <a class="brand" href="#">&nbsp;&nbsp;Contratación</a>
           <div style="height: 0px;" class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="<?php echo site_url('login'); ?>">Inicio</a></li>
+             <!-- <li class="active"><a href="<?php echo site_url(); ?>">Inicio</a></li>-->
                <li><a href="<?php echo site_url('proyectos'); ?>">Proyecto</a></li>
                 <li><a href="<?php echo site_url('formato_lista'); ?>">Formato Lista</a></li>
  
