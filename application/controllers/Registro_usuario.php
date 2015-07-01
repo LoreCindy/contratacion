@@ -24,7 +24,7 @@ class Registro_usuario extends CI_Controller {
         /* Añadimos el helper al controlador */
 		$this->load->helper('url');
 	
-                $this->_init();
+                //$this->_init();
 	}
         
        private function _init()
@@ -33,8 +33,6 @@ class Registro_usuario extends CI_Controller {
                 $this->load->js('assets/themes/default/js/jquery-1.9.1.min.js');
 		$this->load->js('assets/themes/default/hero_files/bootstrap-transition.js');
 		$this->load->js('assets/themes/default/hero_files/bootstrap-collapse.js');
-
-		
 }
 
 /*
