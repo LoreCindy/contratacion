@@ -24,7 +24,7 @@ class Registro_usuario extends CI_Controller {
         /* Añadimos el helper al controlador */
 		$this->load->helper('url');
 	
-                $this->_init();
+                //$this->_init();
 	}
         
        private function _init()
