@@ -1,3 +1,11 @@
+ <?php
+if (isset($this->session->userdata['logged_in'])) {
+$username = ($this->session->userdata['logged_in']['username']);
+//$email = ($this->session->userdata['logged_in']['email']);
+} else {
+header("location: login");
+}
+?>
 <html lang="en">
 	<head>
 		<title><?php echo $title; ?></title>
@@ -126,49 +134,21 @@
           <a class="brand" href="#">&nbsp;&nbsp;Contratación</a>
           <div style="height: 0px;" class="nav-collapse collapse">
             <ul class="nav">
-             <!-- <li class="active"><a href="<?php echo site_url(); ?>">Inicio</a></li>-->
+            
                <li><a href="<?php echo site_url('proyectos'); ?>">Proyecto</a></li>
                 <li><a href="<?php echo site_url('formato_lista'); ?>">Formato Lista</a></li>
- 
                 <li><a href="<?php echo site_url('revision'); ?>">Revision</a></li>
                 <li><a href="<?php echo site_url('documento'); ?>">Documento</a></li>
                 <li><a href="<?php echo site_url('fecha'); ?>">Fecha</a></li>
                 <li><a href="<?php echo site_url('garantia'); ?>">Garantia</a></li>
-                 <li><a href="<?php echo site_url('user_authentication'); ?>">cerrar sesion</a></li>
-           
-            </ul>
-              
-              <?php
-if (isset($this->session->userdata['logged_in'])) {
-$username = ($this->session->userdata['logged_in']['username']);
-//$email = ($this->session->userdata['logged_in']['email']);
-} else {
-header("location: login");
-}
-?>
-<head>
-<title>Admin Page</title>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/style.css">
-<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Open+Sans+Condensed:300|Raleway' rel='stylesheet' type='text/css'>
-</head>
-<body>
-<div id="profile">
-<?php
+             
+               <?php
 echo "Hello <b id='welcome'><i>" . $username . "</i> !</b>";
-echo "<br/>";
-echo "<br/>";
-echo "Welcome to Admin Page";
-echo "<br/>";
-echo "<br/>";
-echo "Your Username is " . $username;
-echo "<br/>";
-//echo "Your Email is " . $email;
-echo "<br/>";
 ?>
 <b id="logout"><a href="logout">Logout</a></b>
-</div>
-<br/>
             
+            </ul>
+                 
           </div><!--/.nav-collapse -->
           
         </div>

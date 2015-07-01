@@ -1,18 +1,10 @@
 <!DOCTYPE html>
 <html>
-<?php
-if (isset($this->session->userdata['logged_in'])) {
-$username = ($this->session->userdata['logged_in']['username']);
-//$email = ($this->session->userdata['logged_in']['email']);
-} else {
-header("location: login");
-}
 
-?>
 <head>
 	<meta charset="utf-8" />
 	<title>Administracion Proyectos - Sourcezilla</title>
-        <button onclick="location.href='logout'">Logout</button>
+      
 <?php 
 foreach($css_files as $file): ?>
 	<link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />

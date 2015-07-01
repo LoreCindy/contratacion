@@ -23,7 +23,7 @@ $this->load->helper('form');
 $this->load->library('form_validation');
 
 // Load session library
-$this->load->driver('session');
+$this->load->library('session');
 
 // Load database
 $this->load->model('login_database');

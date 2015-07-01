@@ -15,6 +15,8 @@ class Proyectos extends CI_Controller {
 	{
 		
 		parent::__construct();
+                $this->session->userdata['logged_in'];
+
 
 		/* Cargamos la base de datos */
 		$this->load->database();
