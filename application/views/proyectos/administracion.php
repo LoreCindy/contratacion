@@ -7,6 +7,7 @@ $username = ($this->session->userdata['logged_in']['username']);
 } else {
 header("location: login");
 }
+
 ?>
 <head>
 	<meta charset="utf-8" />
