@@ -1,14 +1,14 @@
- <?php
+<?php
 if (isset($this->session->userdata['logged_in'])) {
 $username = ($this->session->userdata['logged_in']['username']);
 //$email = ($this->session->userdata['logged_in']['email']);
 } else {
-header("location: login");
+header("location: proyecto");
 }
 ?>
 <html lang="en">
 	<head>
-		<title><?php echo $title; ?></title>
+                   <title><?php echo $title; ?></title>
 		<meta name="resource-type" content="document" />
 		<meta name="robots" content="all, index, follow"/>
 		<meta name="googlebot" content="all, index, follow" />
@@ -28,7 +28,6 @@ header("location: login");
 
 	}
 	echo "\n\t";
-
 	foreach($css as $file){
 	 	echo "\n\t\t";
 		?><link rel="stylesheet" href="<?php echo $file; ?>" type="text/css" /><?php
@@ -147,7 +146,7 @@ header("location: login");
 
             
             </ul>
-                <li><b id="logout"><a href="logout">Logout</a></b></li>  
+                <li><b id="logout"><a href="user_authentication/logout">Logout</a></b></li>  
           </div><!--/.nav-collapse -->
           <?php
 echo "Hello <b id='welcome'><i>" . $username . "</i> !</b>";
