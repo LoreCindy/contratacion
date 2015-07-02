@@ -3,7 +3,7 @@ if (isset($this->session->userdata['logged_in'])) {
 $username = ($this->session->userdata['logged_in']['username']);
 //$email = ($this->session->userdata['logged_in']['email']);
 } else {
-header("location: login");
+header("location: user_authentication/user_login_process");
 }
 ?>
 <html lang="en">
@@ -28,7 +28,7 @@ header("location: login");
 
 	}
 	echo "\n\t";
-
+         /*
 	foreach($css as $file){
 	 	echo "\n\t\t";
 		?><link rel="stylesheet" href="<?php echo $file; ?>" type="text/css" /><?php
@@ -131,7 +131,7 @@ header("location: login");
             <span class="icon-bar"></span>
           </a>
           <img src="<?php echo base_url(); ?>assets/themes/default/images/gober.png" style="float:left;margin-top:5px;z-index:5" alt="logo"/>
-          <a class="brand" href="#">&nbsp;&nbsp;Contratación</a>
+          <a class="brand" href="<?php echo site_url('proyectos'); ?>">&nbsp;&nbsp;Contratación</a>
           <div style="height: 0px;" class="nav-collapse collapse">
             <ul class="nav">
             
@@ -142,12 +142,8 @@ header("location: login");
                 <li><a href="<?php echo site_url('fecha'); ?>">Fecha</a></li>
                 <li><a href="<?php echo site_url('garantia'); ?>">Garantia</a></li>
                
-             
-               
-
-            
             </ul>
-                <li><b id="logout"><a href="logout">Logout</a></b></li>  
+                <li><b id="logout"><a href="<?php echo site_url('user_authentication/logout'); ?>">Logout</a></b></li>  
           </div><!--/.nav-collapse -->
           <?php
 echo "Hello <b id='welcome'><i>" . $username . "</i> !</b>";
@@ -161,8 +157,8 @@ echo "Hello <b id='welcome'><i>" . $username . "</i> !</b>";
     	<h1><?php echo $this->load->get_section('text_header');?></h1>
     <?php }?>
     <div class="row">
-	    <?php echo $output;?>
-		<?php echo $this->load->get_section('sidebar'); ?>
+    <?php echo $output;?>
+    <?php echo $this->load->get_section('sidebar'); ?>
     </div>
       <hr/>
 
