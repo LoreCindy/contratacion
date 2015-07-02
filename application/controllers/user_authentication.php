@@ -48,9 +48,14 @@ $this->form_validation->set_rules('password', 'Password', 'trim|required');
 
 if ($this->form_validation->run() == FALSE) {
 if(isset($this->session->userdata['logged_in'])){
+
     
 $this->load->view('themes/default');
     //$this->load->view('proyectos/administracion');
+
+//$this->load->view('example');
+$this->load->view('themes/default'); 
+
 }else{
 $this->load->view('login_form');
 }
@@ -71,7 +76,9 @@ $session_data = array(
 );
 // Add user data in session
 $this->session->set_userdata('logged_in', $session_data);
+
   //$this->load->view('registration_form');
+
 $this->load->view('themes/default');
 // $this->load->view('proyectos/administracion');
 }

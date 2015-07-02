@@ -23,28 +23,5 @@ class Example extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('ci_simplicity/welcome');
-	}
-
-	public function example_1()
-	{
-		$this->load->view('ci_simplicity/example_1');
-	}
-
-	public function example_2()
-	{
-		$this->output->set_template('simple');
-		$this->load->view('ci_simplicity/example_2');
-	}
-
-	public function example_3()
-	{
-		$this->load->section('sidebar', 'ci_simplicity/sidebar');
-		$this->load->view('ci_simplicity/example_3');
-	}
-
-	public function example_4()
-	{
-		$this->output->unset_template();
-		$this->load->view('ci_simplicity/example_4');
-	}
+        }
 }
