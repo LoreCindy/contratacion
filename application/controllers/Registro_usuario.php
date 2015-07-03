@@ -26,15 +26,7 @@ class Registro_usuario extends CI_Controller {
 	
                 //$this->_init();
 	}
-        
-       private function _init()
-	{
-		$this->output->set_template('default');
-                $this->load->js('assets/themes/default/js/jquery-1.9.1.min.js');
-		$this->load->js('assets/themes/default/hero_files/bootstrap-transition.js');
-		$this->load->js('assets/themes/default/hero_files/bootstrap-collapse.js');
-}
-
+           
 /*
 	 * 
  	 **/
@@ -66,8 +58,7 @@ class Registro_usuario extends CI_Controller {
 			/* Aqui le decimos a grocery que estos campos son obligatorios */
 			$crud->required_fields(	
                           	'username',
-                               'password'
-                               
+                               'password'                              
                               
                             );
 
@@ -79,11 +70,13 @@ class Registro_usuario extends CI_Controller {
                         
                         $crud->display_as('username','Usuario');
                          $crud->display_as('password','Password');
-                        $crud->set_rules('username','Usuario','caracter');
+                      // $crud->set_rules('username','Usuario','md5');
                         
                        /*esta linea permite convertir el campo en tipo password*/
                        $crud->field_type('password', 'password');
-                       
+                       $crud -> change_field_type('password','password');
+                     //  $crud ->callback_insert(array($this ,'encrypt_pw'));
+                     
                        /*esta linea permite ocultar el listar y el boton de listar*/
                        $crud->unset_list();
                        $crud->unset_back_to_list();
@@ -106,9 +99,13 @@ class Registro_usuario extends CI_Controller {
                         {
                            /* Si algo sale mal cachamos el error y lo mostramos */
                                  show_error($e->getMessage().' --- '.$e->getTraceAsString());
-                        }
+                        }                       
+                        
                 }
+                
+                 
 	}
+                
 }
 
 ?>

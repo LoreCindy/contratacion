@@ -8,12 +8,14 @@ header("location: proyecto");
 ?>
 <html lang="en">
 	<head>
-                   <title><?php echo $title; ?></title>
+                     
+          <title><?php echo $title; ?></title>
 		<meta name="resource-type" content="document" />
 		<meta name="robots" content="all, index, follow"/>
-		<meta name="googlebot" content="all, index, follow" />
+	<meta name="googlebot" content="all, index, follow" />
 	<?php
 	/** -- Copy from here -- */
+        
 	if(!empty($meta))
 	foreach($meta as $name=>$content){
 		echo "\n\t\t";
@@ -28,6 +30,7 @@ header("location: proyecto");
 
 	}
 	echo "\n\t";
+     
 	foreach($css as $file){
 	 	echo "\n\t\t";
 		?><link rel="stylesheet" href="<?php echo $file; ?>" type="text/css" /><?php
@@ -139,7 +142,7 @@ header("location: proyecto");
                 <li><a href="<?php echo site_url('revision'); ?>">Revision</a></li>
                 <li><a href="<?php echo site_url('documento'); ?>">Documento</a></li>
                 <li><a href="<?php echo site_url('fecha'); ?>">Fecha</a></li>
-                <li><a href="<?php echo site_url('garantia'); ?>">Garantia</a></li>
+                <li><a href="<?php echo site_url('welcome'); ?>">Garantia</a></li>
                
              
                
@@ -159,8 +162,9 @@ echo "Hello <b id='welcome'><i>" . $username . "</i> !</b>";
     <?php if($this->load->get_section('text_header') != '') { ?>
     	<h1><?php echo $this->load->get_section('text_header');?></h1>
     <?php }?>
+     
     <div class="row">
-	    <?php echo $output;?>
+                <?php echo $output;?>
 		<?php echo $this->load->get_section('sidebar'); ?>
     </div>
       <hr/>

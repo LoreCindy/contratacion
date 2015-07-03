@@ -29,7 +29,8 @@ a:hover
 </head>
 <body>
 <center><h1>Registro Usuario</h1></center>
-    <div>
+<div>
+   
 		<?php echo $output; ?>
     </div>
 </body>
