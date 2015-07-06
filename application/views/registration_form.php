@@ -12,41 +12,40 @@ header("location: http://localhost:8080/PContratacion/index.php/user_authenticat
 <body>
 <div id="main">
 <div id="login">
-<h2>Registration Form</h2>
+<h2>Registro Usuario</h2>
 <hr/>
 <?php
-echo "<div class='error_msg'>";
-echo validation_errors();
-echo "</div>";
+
 echo form_open('user_authentication/new_user_registration');
 
-echo form_label('Create Username : ');
+echo form_label('Usuario: ');
 echo"<br/>";
 echo form_input('username');
-echo "<div class='error_msg'>";
-if (isset($message_display)) {
-echo $message_display;
-}
-echo "</div>";
-echo"<br/>";
-echo form_label('Email : ');
-echo"<br/>";
-$data = array(
-'type' => 'email',
-'name' => 'email_value'
-);
-echo form_input($data);
+echo form_error('username');
+
+
 echo"<br/>";
 echo"<br/>";
-echo form_label('Password : ');
+echo form_label('Contraseña : ');
 echo"<br/>";
 echo form_password('password');
+echo form_error('password');
 echo"<br/>";
 echo"<br/>";
-echo form_submit('submit', 'Sign Up');
+echo form_label('Confirmar contraseña: ');
+echo"<br/>";
+echo form_password('passconf');
+
+echo form_error('passconf');
+echo"<br/>";
+echo"<br/>";
+?>
+<input type='hidden' name='token' value='<?=$token?>'/>
+<?php
+echo form_submit('submit', 'Guardar');
 echo form_close();
 ?>
-<a href="<?php echo base_url() ?> ">For Login Click Here</a>
+<a href="<?php echo base_url() ?> ">Si ya te encuentras registrado clic aqui</a>
 </div>
 </div>
 </body>

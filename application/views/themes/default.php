@@ -149,7 +149,7 @@ header("location: proyecto");
 
             
             </ul>
-                <li><b id="logout"><a href="user_authentication/logout">Logout</a></b></li>  
+                <li><b id="logout"><a href="<?php echo site_url('user_authentication/logout')?>">Logout</a></b></li>  
           </div><!--/.nav-collapse -->
           <?php
 echo "Hello <b id='welcome'><i>" . $username . "</i> !</b>";

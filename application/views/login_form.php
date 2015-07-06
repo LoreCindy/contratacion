@@ -42,14 +42,14 @@ echo "</div>";
 <input type="text" name="username" id="name" placeholder="usuario"/><br /><br />
 <label>Password :</label>
 <input type="password" name="password" id="password" placeholder="**********"/><br/><br />
+<input type="hidden" name="token" value="<?=$token?>" />
 <input type="submit" value=" Entrar" name="submit"/><br />
 
-
-
-
 <?php echo form_close(); ?>
+
+ <a href="<?php echo site_url('user_authentication/user_registration_show'); ?>">Registrarse ahora</a>
 </div>
-    <a href="<?php echo site_url('registro_usuario'); ?>">Registrarme</a>
+   
 </div>
 </body>
 </html>

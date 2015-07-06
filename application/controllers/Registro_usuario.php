@@ -75,8 +75,8 @@ class Registro_usuario extends CI_Controller {
                        /*esta linea permite convertir el campo en tipo password*/
                        $crud->field_type('password', 'password');
                        $crud -> change_field_type('password','password');
-                     //  $crud ->callback_insert(array($this ,'encrypt_pw'));
-                     
+                  
+                     $crud->callback_insert(array($this,'encrypt_password_and_insert_callback'));
                        /*esta linea permite ocultar el listar y el boton de listar*/
                        $crud->unset_list();
                        $crud->unset_back_to_list();
@@ -105,6 +105,14 @@ class Registro_usuario extends CI_Controller {
                 
                  
 	}
+        
+        function encrypt_password_and_insert_callback($post_array) {
+  $this->load->library('encrypt');
+  $key = 'super-secret-key';
+  $post_array['password'] = $this->encrypt->encode($post_array['password'], $key);
+ 
+  return $this->db->insert('users',$post_array);
+}        
                 
 }
 

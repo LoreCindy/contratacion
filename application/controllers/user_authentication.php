@@ -28,21 +28,83 @@ $this->load->library('session');
 // Load database
 $this->load->model('login_database');
 
+$this->load->library('bcrypt');//cargamos la librería
+
 }
 
 // Show login page
 public function index() {
-$this->load->view('login_form');
+    $data['titulo'] = 'login seguro en codeigniter con Bcrypt';
+    $data['token'] = $this->token();
+    $this->load->view('login_form', $data);
 }
 
+//creamos la clave aleatoria para agregar seguridad a nuestro formulario
+  public function token()
+  {
+    $token = md5(uniqid(rand(),true));
+    $this->session->set_userdata('token',$token);
+    return $token;
+  }
+  
 // Show registration page
 public function user_registration_show() {
-$this->load->view('registration_form');
+    $data['titulo'] = 'registro seguro en codeigniter con Bcrypt';
+    $data['token'] = $this->token();
+$this->load->view('registration_form',$data);
 }
+
+// Validate and store registration data in database
+public function new_user_registration() {
+ if($this->input->post('token') && $this->input->post('token') == $this->session->userdata('token'))
+    {
+// Check validation for user input in SignUp form
+$this->form_validation->set_rules('username', 'Username', 'trim|required');
+$this->form_validation->set_rules('password', 'Password', 'required|matches[passconf]');
+$this->form_validation->set_rules('passconf', 'Confirmar contraseña', 'trim|required');
+
+ //lanzamos mensajes de error si es que los hay
+$this->form_validation->set_message('required','El campo es requerido');
+$this->form_validation->set_message('min_length', 'El campo debe tener al menos 6 carácteres');
+$this->form_validation->set_message('matches', 'El campo contraseña debe concidir con el campo confirmar contraseña');
+
+if ($this->form_validation->run() == FALSE) {
+$this->user_registration_show();  
+} else {
+$data = array(
+'username' => $this->input->post('username'),
+'password' => $this->input->post('password')
+);
+$username = $data['username'] ;
+$password = $data['password'] ;
+$hash = $this->bcrypt->hash_password($password);
+
+ //comprobamos si el password se ha encriptado
+        if ($this->bcrypt->check_password($password, $hash))
+        {
+            $insert_password = $this->login_database->registration_insert($username,$hash);
+          if($insert_password)
+          {
+           $data['message_display'] = 'Se ha registrado el usuario con exito!';
+            $this->index($data);
+//$this->load->view('login_form', $data);
+          }
+        }
+        else
+        {
+            $data['message_display'] = 'usuario ya existe!';
+            $this->user_registration_show();
+            //$this->load->view('registration_form', $data);   
+        }
+}
+    }
+}
+
 
 // Check for user login process
 public function user_login_process() {
-
+if($this->input->post('token') && $this->input->post('token') == $this->session->userdata('token'))
+    {
 $this->form_validation->set_rules('username', 'Username', 'trim|required');
 $this->form_validation->set_rules('password', 'Password', 'trim|required');
 
@@ -52,16 +114,14 @@ if(isset($this->session->userdata['logged_in'])){
     //$this->load->view('themes/default', $output);
   
 }else{
-$this->load->view('login_form');
+$this->index(); 
 }
 } else {
-$data = array(
-'username' => $this->input->post('username'),
-'password' => $this->input->post('password')
-);
-$result = $this->login_database->login($data);
-if ($result == TRUE) {
+$username = $this->input->post('username');
+$password = $this->input->post('password');
 
+$result = $this->login_database->login($username,$password);
+if ($result == TRUE) {
 $username = $this->input->post('username');
 $result = $this->login_database->read_user_information($username);
 if ($result != false) {
@@ -78,7 +138,8 @@ redirect('welcome/index');
 $data = array(
 'error_message' => 'Invalido Usuario or Password'
 );
-$this->load->view('login_form', $data);
+$this->index();
+}
 }
 }
 }
@@ -91,7 +152,8 @@ $sess_array = array(
 );
 $this->session->unset_userdata('logged_in', $sess_array);
 $data['message_display'] = '';
-$this->load->view('login_form', $data);
+$this->index($data);
+//$this->load->view('login_form', $data);
 }
 }
 
