@@ -67,14 +67,14 @@ header("location: proyecto");
 	::webkit-selection{ background-color: #E13300; color: white; }
 
 	body {
-		background-color: #fff;
+              background-color: #E2FBD9;
 		margin: 40px;
 		font: 13px/20px normal Helvetica, Arial, sans-serif;
 		color: #4F5155;
 	}
 
 	a {
-		color: #003399;
+		color: #9FFAA8;
 		background-color: transparent;
 		font-weight: normal;
 	}
@@ -82,7 +82,7 @@ header("location: proyecto");
 	h1 {
 		color: #444;
 		background-color: transparent;
-		border-bottom: 1px solid #D0D0D0;
+		border-bottom: 1px solid #6EEE7D;
 		font-size: 19px;
 		font-weight: normal;
 		margin: 0 0 14px 0;
@@ -92,7 +92,7 @@ header("location: proyecto");
 	code {
 		font-family: Consolas, Monaco, Courier New, Courier, monospace;
 		font-size: 12px;
-		background-color: #f9f9f9;
+		background-color: #6EEE7D;
 		border: 1px solid #D0D0D0;
 		color: #002166;
 		display: block;
@@ -102,12 +102,13 @@ header("location: proyecto");
 
 	#body{
 		margin: 0 15px 0 15px;
+        
 	}
 
 	p.footer{
 		text-align: right;
 		font-size: 11px;
-		border-top: 1px solid #D0D0D0;
+		border-top: 1px solid #6EEE7D;
 		line-height: 32px;
 		padding: 0 10px 0 10px;
 		margin: 20px 0 0 0;
@@ -115,7 +116,7 @@ header("location: proyecto");
 
 	#container{
 		margin: 10px;
-		border: 1px solid #D0D0D0;
+		border: 1px solid #6EEE7D;
 		-webkit-box-shadow: 0 0 8px #D0D0D0;
 	}
 	</style>

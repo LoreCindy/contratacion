@@ -160,7 +160,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 18px;
-  color: #333333;
+  color: #4FF090;
   background-color: #ffffff;
 }
 
@@ -426,7 +426,7 @@ p {
 
 p small {
   font-size: 11px;
-  color: #999999;
+  color: #6DF6AD;
 }
 
 .lead {
@@ -456,7 +456,7 @@ h4 small,
 h5 small,
 h6 small {
   font-weight: normal;
-  color: #999999;
+  color: #6DF6AD;
 }
 
 h1 {
@@ -506,7 +506,7 @@ h5 {
 
 h6 {
   font-size: 11px;
-  color: #999999;
+  color: #6DF6AD;
   text-transform: uppercase;
 }
 
@@ -599,7 +599,7 @@ em {
 }
 
 .muted {
-  color: #999999;
+  color: #6DF6AD;
 }
 
 abbr[title] {
@@ -675,7 +675,7 @@ pre {
   padding: 0 3px 2px;
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
   font-size: 12px;
-  color: #333333;
+  color: #6AE4A3;
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
           border-radius: 3px;
@@ -739,7 +739,7 @@ legend {
   margin-bottom: 27px;
   font-size: 19.5px;
   line-height: 36px;
-  color: #333333;
+  color: #76E687;
   border: 0;
   border-bottom: 1px solid #e5e5e5;
 }
@@ -1308,7 +1308,7 @@ select:focus:required:invalid:focus {
   text-align: center;
   text-shadow: 0 1px 0 #ffffff;
   vertical-align: middle;
-  background-color: #eeeeee;
+  background-color:  ;
   border: 1px solid #ccc;
 }
 
