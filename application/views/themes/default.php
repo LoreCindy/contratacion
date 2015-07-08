@@ -134,21 +134,17 @@ header("location: proyecto");
             <span class="icon-bar"></span>
           </a>
           <img src="<?php echo base_url(); ?>assets/themes/default/images/gober.png" style="float:left;margin-top:5px;z-index:5" alt="logo"/>
-          <a class="brand" href="#">&nbsp;&nbsp;Contratación</a>
+          <a class="brand" href="<?php echo site_url('welcome'); ?>">&nbsp;&nbsp;Contratación</a>
           <div style="height: 0px;" class="nav-collapse collapse">
             <ul class="nav">
             
-               <li><a href="<?php echo site_url('proyectos'); ?>">Proyecto</a></li>
+                <li><a href="<?php echo site_url('proyectos'); ?>">Proyecto</a></li>
                 <li><a href="<?php echo site_url('formato_lista'); ?>">Formato Lista</a></li>
                 <li><a href="<?php echo site_url('revision'); ?>">Revision</a></li>
                 <li><a href="<?php echo site_url('documento'); ?>">Documento</a></li>
                 <li><a href="<?php echo site_url('fecha'); ?>">Fecha</a></li>
-                <li><a href="<?php echo site_url('welcome'); ?>">Garantia</a></li>
-               
-             
-               
+                <li><a href="<?php echo site_url('garantia'); ?>">Garantia</a></li>
 
-            
             </ul>
                 <li><b id="logout"><a href="<?php echo site_url('user_authentication/logout')?>">Logout</a></b></li>  
           </div><!--/.nav-collapse -->
