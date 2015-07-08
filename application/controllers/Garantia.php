@@ -48,9 +48,9 @@ class Garantia extends CI_Controller {
 			$crud = new grocery_CRUD();
 
 			/* Seleccionamos el tema */
-			/*$crud->set_theme('flexigrid');*/
+			$crud->set_theme('flexigrid');
                         
-                       $crud->set_theme('bootstrap');
+                      //$crud->set_theme('bootstrap');
 
 			/* Seleccionmos el nombre de la tabla de nuestra base de datos*/
 			$crud->set_table('garantia');

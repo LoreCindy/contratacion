@@ -67,7 +67,7 @@ header("location: proyecto");
 	::webkit-selection{ background-color: #E13300; color: white; }
 
 	body {
-              background-color: #E2FBD9;
+                background-color: #E2FBD9;
 		margin: 40px;
 		font: 13px/20px normal Helvetica, Arial, sans-serif;
 		color: #4F5155;
@@ -171,8 +171,8 @@ header("location: proyecto");
       <footer>
       	<div class="row">
 	        <div class="span6 b10">
-				Copyright &copy; <a target="_blank" href="https://plus.google.com/u/0/107789497808468736690?rel=author">John Skoumbourdis</a> | <a target="_blank" href="http://www.web-and-development.com">www.web-and-development.com</a>
-	        </div>
+                                    Copyright &copy; <a target="_blank" href="https://plus.google.com/u/0/107789497808468736690?rel=author">John Skoumbourdis</a> | <a target="_blank" href="http://www.web-and-development.com">www.web-and-development.com</a>
+                    </div>
         </div>
       </footer>
 
