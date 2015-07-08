@@ -77,6 +77,8 @@ header("location: proyecto");
 		color: #9FFAA8;
 		background-color: transparent;
 		font-weight: normal;
+                font-size: 17;
+             
 	}
 
 	h1 {
@@ -146,10 +148,10 @@ header("location: proyecto");
                 <li><a href="<?php echo site_url('garantia'); ?>">Garantia</a></li>
 
             </ul>
-                <li><b id="logout"><a href="<?php echo site_url('user_authentication/logout')?>">Logout</a></b></li>  
+             <DIV ALIGN=right><li><b id="logout"><a href="<?php echo site_url('user_authentication/logout')?>"><font color="White" size="3"> Cerrar Sesión</font></a></b></li></DIV>
           </div><!--/.nav-collapse -->
           <?php
-echo "Hello <b id='welcome'><i>" . $username . "</i> !</b>";
+  echo "  <DIV ALIGN=right>Bienvenid@ <b id='welcome'><i>" . $username . "</i> !</b>";
 ?>
         </div>
       </div>
