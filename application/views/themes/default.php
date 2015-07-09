@@ -74,7 +74,7 @@ header("location: proyecto");
 	}
 
 	a {
-		color: #9FFAA8;
+		color: #0B0B0B;
 		background-color: transparent;
 		font-weight: normal;
                 font-size: 17;
@@ -135,6 +135,7 @@ header("location: proyecto");
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
+            <br>
           <img src="<?php echo base_url(); ?>assets/themes/default/images/gober.png" style="float:left;margin-top:5px;z-index:5" alt="logo"/>
           <a class="brand" href="<?php echo site_url('welcome'); ?>">&nbsp;&nbsp;Contratación</a>
           <div style="height: 0px;" class="nav-collapse collapse">
@@ -171,7 +172,7 @@ header("location: proyecto");
       <footer>
       	<div class="row">
 	        <div class="span6 b10">
-                                    Copyright &copy; <a target="_blank" href="https://plus.google.com/u/0/107789497808468736690?rel=author">John Skoumbourdis</a> | <a target="_blank" href="http://www.web-and-development.com">www.web-and-development.com</a>
+                     Copyright &copy; <a target="black" href="" >C&C</a> | <a target="_blank" href="http://www.web-and-development.com">www.web-and-development.com</a>
                     </div>
         </div>
       </footer>

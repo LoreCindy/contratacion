@@ -1,29 +1,58 @@
-<!doctype html> 
-<head> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style> 
-.fadein { position:relative; height:800px; width:800px;   } 
-.fadein img { position:absolute; left:0; top:0; } 
-</style> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width:80%;
+      margin: auto;
+  }
+  </style>
+</head>
+<body>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> 
-<script> 
-$(function(){ 
-    $('.fadein img:gt(0)').hide(); 
-    setInterval(function(){$('.fadein :first-child').fadeOut().next('img').fadeIn().end().appendTo('.fadein');}, 4000); 
-}); 
-</script> 
-
-</head> 
-<body> 
-<center><div  class="fadein"> 
+<div class="container">
+  <br>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
    
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Edificio_de_La_Gobernaci%C3%B3n_de_Nari%C3%B1o_-_Palacio_de_Gobierno.jpg/640px-Edificio_de_La_Gobernaci%C3%B3n_de_Nari%C3%B1o_-_Palacio_de_Gobierno.jpg"> 
-    <img src="http://www.fenalco.com.co/sites/default/files/personajpg_3.png"> 
-    <img src="http://dyg-derechoygestion.com/wp-content/uploads/2013/07/t_finanzas.jpg"> 
-    <img src=" http://bm-abogados.com.mx/wp-content/uploads/2015/04/b51-1200x500.jpg"> 
-   
 
-</div></center> 
-</body> 
-</html> 
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="http://www.abogama.com/wp-content/uploads/2015/01/contrato.jpg" alt="Chania" width="460" height="345">
+      </div>
+
+      <div class="item">
+        <img src="http://www.spicegourmet.com.br/site/media/k2/items/cache/245effadf41c6129f4fe7accc564ef86_XL.jpg" alt="Chania" width="460" height="345">
+      </div>
+    
+      <div class="item">
+        <img src="http://www.contratosdeformacionyaprendizaje.es/images/contrato.jpg" alt="Flower" width="460" height="345">
+      </div>
+
+      <div class="item">
+        <img src="http://diarioresponsable.com/images/stories/contrato.jpg" alt="Flower" width="460" height="345">
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only"></span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only"></span>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>
