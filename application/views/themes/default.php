@@ -58,16 +58,16 @@ header("location: proyecto");
 
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/themes/default/images/gober.png" type="image/x-icon"/>
-	<meta property="og:image" content="<?php echo base_url(); ?>assets/themes/default/images/facebook-thumb.png"/>
-	<link rel="image_src" href="<?php echo base_url(); ?>assets/themes/default/images/facebook-thumb.png" />
-	<style type="text/css">
+    <meta property="og:image" content="<?php echo base_url(); ?>assets/themes/default/images/facebook-thumb.png"/>
+    <link rel="image_src" href="<?php echo base_url(); ?>assets/themes/default/images/facebook-thumb.png" />
+    <style type="text/css">
 
 	::selection{ background-color: #E13300; color: white; }
 	::moz-selection{ background-color: #E13300; color: white; }
 	::webkit-selection{ background-color: #E13300; color: white; }
 
 	body {
-                background-color: #E2FBD9;
+                background-color: #A1C9A4;
 		margin: 40px;
 		font: 13px/20px normal Helvetica, Arial, sans-serif;
 		color: #4F5155;
@@ -82,12 +82,12 @@ header("location: proyecto");
 	}
 
 	h1 {
-		color: #444;
+		color: #090909;
 		background-color: transparent;
-		border-bottom: 1px solid #6EEE7D;
-		font-size: 19px;
+		border-bottom: 1px solid #0C0C0C;
+		font-size: 20px;
 		font-weight: normal;
-		margin: 0 0 14px 0;
+		margin: 0 0 16px 0;
 		padding: 14px 15px 10px 15px;
 	}
 
@@ -104,13 +104,13 @@ header("location: proyecto");
 
 	#body{
 		margin: 0 15px 0 15px;
-        
+            
 	}
 
 	p.footer{
 		text-align: right;
 		font-size: 11px;
-		border-top: 1px solid #6EEE7D;
+		border-top: 1px solid #1F2120;
 		line-height: 32px;
 		padding: 0 10px 0 10px;
 		margin: 20px 0 0 0;
@@ -148,11 +148,11 @@ header("location: proyecto");
                 <li><a href="<?php echo site_url('garantia'); ?>">Garantia</a></li>
 
             </ul>
-             <DIV ALIGN=right><li><b id="logout"><a href="<?php echo site_url('user_authentication/logout')?>"><font color="White" size="3"> Cerrar Sesión</font></a></b></li></DIV>
+           <DIV ALIGN=right><b id="logout"><a href="<?php echo site_url('user_authentication/logout')?>"><font color="White" size="3"> Cerrar Sesión</font></a></b></li></DIV>
           </div><!--/.nav-collapse -->
           <?php
-  echo "  <DIV ALIGN=right>Bienvenid@ <b id='welcome'><i>" . $username . "</i> !</b>";
-?>
+          echo "  <DIV ALIGN=right>Bienvenid@ <b id='welcome'><i>" . $username . "</i> !</b>";
+          ?>
         </div>
       </div>
     </div>

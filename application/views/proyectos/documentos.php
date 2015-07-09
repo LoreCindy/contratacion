@@ -25,7 +25,7 @@ a {
 }
 a:hover
 {
-	text-decoration: underline;
+	text-decoration: underline; 
 }
 </style>
 </head>
@@ -33,7 +33,7 @@ a:hover
 <center><h1>Administracion de Documentos</h1></center>
     <div>
 		<?php echo $output; ?>
-        <b id="logout"><a href="logout">Logout</a></b>
+      
     </div>
 </body>
 </html>

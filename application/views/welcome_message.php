@@ -17,7 +17,7 @@ $(function(){
 </head> 
 <body> 
 <center><div  class="fadein"> 
-    <img  src="http://weblogs.upyd.es/majadahonda/wp-content/uploads/sites/47/2012/04/Dibujo.png"> 
+   
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Edificio_de_La_Gobernaci%C3%B3n_de_Nari%C3%B1o_-_Palacio_de_Gobierno.jpg/640px-Edificio_de_La_Gobernaci%C3%B3n_de_Nari%C3%B1o_-_Palacio_de_Gobierno.jpg"> 
     <img src="http://www.fenalco.com.co/sites/default/files/personajpg_3.png"> 
     <img src="http://dyg-derechoygestion.com/wp-content/uploads/2013/07/t_finanzas.jpg"> 

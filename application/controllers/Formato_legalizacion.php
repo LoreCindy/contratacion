@@ -55,7 +55,7 @@ class Formato_legalizacion extends CI_Controller  {
 			$crud->set_table('formato_legalizacion');
 
 			/* Le asignamos un nombre */
-			$crud->set_subject('Formato_legalizacion');
+			$crud->set_subject('Formato legalizacion');
 
                          $crud->set_primary_key('id_formato_legalizacion','formato_legalizacion');
                                 //('codigoBPID','Proyecto');

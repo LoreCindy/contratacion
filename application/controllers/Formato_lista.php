@@ -54,7 +54,7 @@ class Formato_lista extends CI_Controller{
 			$crud->set_table('formatolista');
 
 			/* Le asignamos un nombre */
-			$crud->set_subject('FormatoLista');
+			$crud->set_subject('Formato Lista');
 
                         $crud->set_primary_key('id_formato','formatolista');
                                 //('codigoBPID','Proyecto');

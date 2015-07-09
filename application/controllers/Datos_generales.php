@@ -55,7 +55,7 @@ class Datos_generales extends CI_Controller {
 			$crud->set_table('datos_generales');
 
 			/* Le asignamos un nombre */
-			$crud->set_subject('Datos_generales');
+			$crud->set_subject('Datos generales');
 
                          $crud->set_primary_key('id_datos_generales','datos_generales');
                                 //('codigoBPID','Proyecto');
