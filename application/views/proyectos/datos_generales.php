@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8" />
+    <head>
+    <br>
+    <br>
+    <meta charset="utf-8" />
 	<title>Administracion Datos Generales- Sourcezilla</title>
 <?php 
 foreach($css_files as $file): ?>

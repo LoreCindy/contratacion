@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8" />
+<br>
+<br>
+<meta charset="utf-8" />
 	<title>Administracion Formato Legalizaciòn- Sourcezilla</title>
 <?php 
 foreach($css_files as $file): ?>

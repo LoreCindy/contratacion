@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<br>
+<br>
 	<meta charset="utf-8" />
 	<title>Administración Garantía- Sourcezilla</title>
 <?php 

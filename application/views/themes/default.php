@@ -129,10 +129,7 @@ header("location: proyecto");
         
         
       
-        #content {
-    width: 1200px;
-    margin: 0px auto;
-}
+     
 
 #column-left {
     background-color: #EBE9EA;
@@ -151,10 +148,10 @@ header("location: proyecto");
 #central {
   
     border-radius: 8px 8px 8px 8px;
-    float: left;
-    height: 300px;
-    margin-bottom: 0px;
-    width: 1000px;
+    float: top;
+    margin-top: 10px;
+   
+    
 }
 	</style>
 
