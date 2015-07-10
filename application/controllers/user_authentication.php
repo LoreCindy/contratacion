@@ -153,7 +153,7 @@ $sess_array = array(
 $this->session->unset_userdata('logged_in', $sess_array);
 $data['message_display'] = '';
 $this->index($data);
-//$this->load->view('login_form', $data);
+//$this->load->view('login_form');
 }
 }
 

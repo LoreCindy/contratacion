@@ -8,9 +8,22 @@ header("location: http://localhost:8080/PContratacion/index.php/user_authenticat
 <title>Registration Form</title>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/style.css">
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Open+Sans+Condensed:300|Raleway' rel='stylesheet' type='text/css'>
+
+<style>
+    
+div{
+    
+    background-color: #FAF1F1;
+}
+
+body{
+    background-image:url("assets/fondo.jpg");
+     background-color: #8195F5;
+}
+
+</style>
 </head>
 <body>
-<div id="main">
 <div id="login">
 <h2>Registro Usuario</h2>
 <hr/>

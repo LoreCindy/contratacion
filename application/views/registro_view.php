@@ -13,6 +13,7 @@ foreach($css_files as $file): ?>
 <style type='text/css'>
 body
 {
+     
 	font-family: Arial;
 	font-size: 14px;
 }

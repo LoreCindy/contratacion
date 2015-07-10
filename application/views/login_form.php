@@ -9,6 +9,20 @@ header("location: http://localhost:8080/PContratacion/index.php/example");
 <title>Login Form</title>
 <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Open+Sans+Condensed:300|Raleway' rel='stylesheet' type='text/css'>
+
+<style>
+    
+div{
+    
+    background-color: #FAF1F1;
+}
+
+body{
+    background-image:url("assets/fondo.jpg");
+     background-color: #8195F5;
+}
+
+</style>
 </head>
 <body>
 <?php
@@ -25,10 +39,13 @@ echo $message_display;
 echo "</div>";
 }
 ?>
-<div id="main">
+
+    <div id="main"></div>
 <div id="login">
+   
 <h2>Inicio de Sesión</h2>
 <hr/>
+ 
 <?php echo form_open('user_authentication/user_login_process'); ?>
 <?php
 echo "<div class='error_msg'>";
@@ -38,6 +55,7 @@ echo $error_message;
 echo validation_errors();
 echo "</div>";
 ?>
+
 <label>Usuario:</label>
 <input type="text" name="username" id="name" placeholder="usuario"/><br /><br />
 <label>Password :</label>
@@ -46,10 +64,10 @@ echo "</div>";
 <input type="submit" value=" Entrar" name="submit"/><br />
 
 <?php echo form_close(); ?>
-
  <a href="<?php echo site_url('user_authentication/user_registration_show'); ?>">Registrarse ahora</a>
+
 </div>
-   
-</div>
+
+
 </body>
 </html>

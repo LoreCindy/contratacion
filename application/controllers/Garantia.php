@@ -123,12 +123,12 @@ class Garantia extends CI_Controller {
                              
                               
                         $crud->field_type('TipoGarantia','dropdown',
-                        array('1' => 'Concomitante de la garantia', '2' => 'seguridad social','3' => 'certificado de salud' , '4' => 'parafiscales', '5' => 'cuentas bancarias', '6' => 'otros') );
+                      array('1' => 'Concomitante de la garantia', '2' => 'seguridad social','3' => 'certificado de salud' , '4' => 'parafiscales', '5' => 'cuentas bancarias', '6' => 'otros') );
 			
                         $crud->field_type('Aplica','dropdown',
                             array('1' => 'Si', '2' => 'No') );
                             $crud->set_rules('numero_garantia','N° Garantia','numeric');
-                        $crud->set_rules('porcentaje','Porcentaje','numeric');
+                       $crud->set_rules('porcentaje','Porcentaje','numeric');
                         $crud->set_rules('tiempo_año','Año','numeric');
                         $crud->set_rules('valor','Valor','numeric');
                      
