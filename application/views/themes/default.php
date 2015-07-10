@@ -104,6 +104,10 @@ header("location: proyecto");
 
 	#body{
 		margin: 0 15px 0 15px;
+                
+                
+                
+                
             
 	}
 
@@ -121,12 +125,44 @@ header("location: proyecto");
 		border: 1px solid #6EEE7D;
 		-webkit-box-shadow: 0 0 8px #D0D0D0;
 	}
+        
+        
+        
+      
+        #content {
+    width: 1200px;
+    margin: 0px auto;
+}
+
+#column-left {
+    background-color: #EBE9EA;
+    border: 1px solid #D2D2D2;
+    border-radius: 8px 8px 8px 8px;
+    float: left;
+    position: fixed;
+    min-height: 225px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    overflow: hidden;
+    text-align: center;
+    width: 200px;
+}
+
+#central {
+  
+    border-radius: 8px 8px 8px 8px;
+    float: left;
+    height: 300px;
+    margin-bottom: 0px;
+    width: 1000px;
+}
 	</style>
 
 </head>
 
   <body>
 
+   <div id="central">
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -151,6 +187,7 @@ header("location: proyecto");
             </ul>
            <DIV ALIGN=right><b id="logout"><a href="<?php echo site_url('user_authentication/logout')?>"><font color="White" size="3"> Cerrar Sesión</font></a></b></li></DIV>
           </div><!--/.nav-collapse -->
+        </div>
           <?php
           echo "  <DIV ALIGN=right>Bienvenid@ <b id='welcome'><i>" . $username . "</i> !</b>";
           ?>
