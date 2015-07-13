@@ -68,7 +68,7 @@ header("location: proyecto");
 
 	body {
                 background-color: #A1C9A4;
-		margin: 40px;
+		margin: 60px;
 		font: 13px/20px normal Helvetica, Arial, sans-serif;
 		color: #4F5155;
 	}
@@ -87,7 +87,7 @@ header("location: proyecto");
 		border-bottom: 1px solid #0C0C0C;
 		font-size: 20px;
 		font-weight: normal;
-		margin: 0 0 16px 0;
+		margin: 0 0 14px 0;
 		padding: 14px 15px 10px 15px;
 	}
 
@@ -125,6 +125,9 @@ header("location: proyecto");
 		border: 1px solid #6EEE7D;
 		-webkit-box-shadow: 0 0 8px #D0D0D0;
 	}
+        #div{
+              height:60px;
+        }
         
         
         
@@ -149,10 +152,11 @@ header("location: proyecto");
   
     border-radius: 8px 8px 8px 8px;
     float: top;
-    margin-top: 10px;
+    margin-top: 29px;
    
-    
-}
+   }
+
+
 	</style>
 
 </head>
@@ -175,19 +179,23 @@ header("location: proyecto");
             <ul class="nav">
             
                 <li><a href="<?php echo site_url('proyectos'); ?>">Proyecto</a></li>
-                <li><a href="<?php echo site_url('formato_lista'); ?>">Formato Lista</a></li>
+                <li><a href="<?php echo site_url('formato_lista');?>">Formato Lista</a></li>
                 <li><a href="<?php echo site_url('revision'); ?>">Revision</a></li>
                 <li><a href="<?php echo site_url('documento'); ?>">Documento</a></li>
                 <li><a href="<?php echo site_url('fecha'); ?>">Fecha</a></li>
                 <li><a href="<?php echo site_url('garantia'); ?>">Garantia</a></li>
 
             </ul>
-           <DIV ALIGN=right><b id="logout"><a href="<?php echo site_url('user_authentication/logout')?>"><font color="White" size="3"> Cerrar Sesión</font></a></b></li></DIV>
+              
+               <?php
+          echo " <DIV ALIGN=right >Bienvenid@ <b id='welcome' ><i>" . $username . "</i> !</b></div>";
+          ?>
+              
+            <DIV ALIGN=right><b id="logout"><a href="<?php echo site_url('user_authentication/logout')?>"><font color="White" size="3"> Cerrar Sesión</font></a></b></li></DIV>
           </div><!--/.nav-collapse -->
         </div>
-          <?php
-          echo "  <DIV ALIGN=right>Bienvenid@ <b id='welcome'><i>" . $username . "</i> !</b>";
-          ?>
+         
+          
         </div>
       </div>
     </div>

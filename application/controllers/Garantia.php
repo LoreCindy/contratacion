@@ -118,6 +118,7 @@ class Garantia extends CI_Controller {
                                 ->display_as('Documento_idDocumento','Documento')
                                 ->display_as('numero_garantia','N° Garantia')
                                 ->display_as('tiempo_año','Año')
+                                   ->display_as('valor','Valor $')
                                 ->display_as('revision_id_revision','Nombre revisión')
                                 ->display_as('formato_legalizacion_id_formato_legalizacion','Formato Legalización');
                              

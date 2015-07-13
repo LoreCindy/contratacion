@@ -197,7 +197,7 @@ a:hover {
 .container,
 .navbar-fixed-top .container,
 .navbar-fixed-bottom .container {
-  width: 940px;
+  width: 950px;
 }
 
 .span12 {
@@ -257,7 +257,7 @@ a:hover {
 }
 
 .offset10 {
-  margin-left: 820px;
+  margin-left: 900px;
 }
 
 .offset9 {
