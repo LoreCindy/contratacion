@@ -7,7 +7,6 @@ class Example extends CI_Controller {
 		parent::__construct();
 
 		$this->load->helper('url');
-
 		$this->_init();
 	}
 
@@ -22,6 +21,8 @@ class Example extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('ci_simplicity/welcome');
+           $this->load->view('ci_simplicity/welcome');
         }
+        
+   
 }

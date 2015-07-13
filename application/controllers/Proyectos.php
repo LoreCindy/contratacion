@@ -23,6 +23,9 @@ class Proyectos extends CI_Controller {
 
 		/* Cargamos la libreria*/
 		$this->load->library('grocery_crud');
+                
+                // Load database
+                $this->load->model('login_database');
 
 		/* Añadimos el helper al controlador */
 		$this->load->helper('url');
@@ -95,7 +98,7 @@ class Proyectos extends CI_Controller {
 			
 			/* Generamos la tabla */
 			$output = $crud->render();
-			
+			//$this->proyectos();
 			/* La cargamos en la vista situada en 
 			/applications/views/productos/administracion.php */
 			$this->load->view('proyectos/administracion', $output);
@@ -105,6 +108,24 @@ class Proyectos extends CI_Controller {
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
 		}
 	}
+        
+         public function proyectos()
+        {
+           
+            $insert_password= $this->login_database->get_list_proyectos();
+            if($insert_password== true)
+          {
+           $data['display'] = 'true';
+           $this->load->view('themes/default', $data);   
+          
+          }
+        else
+        {
+            $data['display'] = 'false';
+            $this->load->view('themes/default', $data);  
+            
+        }
+        }
 }
 
 
