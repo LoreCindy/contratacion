@@ -1,3 +1,14 @@
+div{
+    
+    background-color: #FAF1F1;
+}
+
+body{
+    background-image:url("../fondo.jpg");
+     background-color: #8195F5;
+}
+
+
 #main{
 width:960px;
 margin:50px auto;

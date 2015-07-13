@@ -9,18 +9,9 @@ header("location: http://localhost:8080/PContratacion/index.php/example");
 <title>Login Form</title>
 <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Open+Sans+Condensed:300|Raleway' rel='stylesheet' type='text/css'>
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <style>
     
-div{
-    
-    background-color: #FAF1F1;
-}
-
-body{
-    background-image:url("assets/fondo.jpg");
-     background-color: #8195F5;
-}
 
 </style>
 </head>
@@ -32,13 +23,7 @@ echo $logout_message;
 echo "</div>";
 }
 ?>
-<?php
-if (isset($message_display)) {
-echo "<div class='message'>";
-echo $message_display;
-echo "</div>";
-}
-?>
+
 
     <div id="main"></div>
 <div id="login">
@@ -47,19 +32,26 @@ echo "</div>";
 <hr/>
  
 <?php echo form_open('user_authentication/user_login_process'); ?>
-<?php
-echo "<div class='error_msg'>";
-if (isset($error_message)) {
+<?php if (isset($error_message))
+ {
+echo "<div class='alert alert-danger'>";
 echo $error_message;
-}
-echo validation_errors();
 echo "</div>";
+}
+
+if (isset($message_display)) {
+echo "<div class='alert alert-success'>";
+echo $message_display;
+echo "</div>";
+}
+
+
 ?>
 
 <label>Usuario:</label>
-<input type="text" name="username" id="name" placeholder="usuario"/><br /><br />
+<input type="text" name="username" id="name" placeholder="usuario" required/><br /><br />
 <label>Password :</label>
-<input type="password" name="password" id="password" placeholder="**********"/><br/><br />
+<input type="password" name="password" id="password" placeholder="**********" required/><br/><br />
 <input type="hidden" name="token" value="<?=$token?>" />
 <input type="submit" value=" Entrar" name="submit"/><br />
 

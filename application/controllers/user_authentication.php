@@ -39,6 +39,22 @@ public function index() {
     $this->load->view('login_form', $data);
 }
 
+public function exito() {
+    $data['message_display'] = 'Se ha registrado el usuario con exito!';
+    $data['titulo'] = 'login seguro en codeigniter con Bcrypt';
+    $data['token'] = $this->token();
+    $this->load->view('login_form', $data);
+}
+
+
+
+public function error_message() {
+    $data ['error_message']= 'Invalido Usuario o Password';
+    $data['titulo'] = 'login seguro en codeigniter con Bcrypt';
+    $data['token'] = $this->token();
+    $this->load->view('login_form', $data);
+}
+
 //creamos la clave aleatoria para agregar seguridad a nuestro formulario
   public function token()
   {
@@ -59,14 +75,14 @@ public function new_user_registration() {
  if($this->input->post('token') && $this->input->post('token') == $this->session->userdata('token'))
     {
 // Check validation for user input in SignUp form
-$this->form_validation->set_rules('username', 'Username', 'trim|required');
+//$this->form_validation->set_rules('username', 'Username', 'trim|required');
 $this->form_validation->set_rules('password', 'Password', 'required|matches[passconf]');
 $this->form_validation->set_rules('passconf', 'Confirmar contraseña', 'trim|required');
 
  //lanzamos mensajes de error si es que los hay
-$this->form_validation->set_message('required','El campo es requerido');
-$this->form_validation->set_message('min_length', 'El campo debe tener al menos 6 carácteres');
-$this->form_validation->set_message('matches', 'El campo contraseña debe concidir con el campo confirmar contraseña');
+//$this->form_validation->set_message('required','El campo es requerido');
+//$this->form_validation->set_message('min_length', 'El campo debe tener al menos 6 carácteres');
+$this->form_validation->set_message('matches', 'Las contraseñas no coinciden. ¿Quieres volver a intentarlo?');
 
 if ($this->form_validation->run() == FALSE) {
 $this->user_registration_show();  
@@ -85,8 +101,8 @@ $hash = $this->bcrypt->hash_password($password);
             $insert_password = $this->login_database->registration_insert($username,$hash);
           if($insert_password)
           {
-           $data['message_display'] = 'Se ha registrado el usuario con exito!';
-            $this->index($data);
+          
+            $this->exito();
 //$this->load->view('login_form', $data);
           }
         }
@@ -135,10 +151,8 @@ redirect('welcome/index');
 
 }
 } else {
-$data = array(
-'error_message' => 'Invalido Usuario or Password'
-);
-$this->index();
+
+$this->error_message();
 }
 }
 }
