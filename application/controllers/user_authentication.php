@@ -65,6 +65,13 @@ public function error_message() {
   
 // Show registration page
 public function user_registration_show() {
+  
+    $data['titulo'] = 'registro seguro en codeigniter con Bcrypt';
+    $data['token'] = $this->token();
+$this->load->view('registration_form',$data);
+}
+public function user_registration() {
+    $data['message_display'] = 'usuario ya existe!';
     $data['titulo'] = 'registro seguro en codeigniter con Bcrypt';
     $data['token'] = $this->token();
 $this->load->view('registration_form',$data);
@@ -105,17 +112,17 @@ $hash = $this->bcrypt->hash_password($password);
             $this->exito();
 //$this->load->view('login_form', $data);
           }
-        }
+        
         else
         {
-            $data['message_display'] = 'usuario ya existe!';
-            $this->user_registration_show();
+            
+            $this->user_registration();
             //$this->load->view('registration_form', $data);   
         }
 }
     }
 }
-
+}
 
 // Check for user login process
 public function user_login_process() {
