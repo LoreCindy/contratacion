@@ -25,7 +25,9 @@ echo "</div>";
     <div id="main"></div>
 <div id="login">
     
-    <div class="login-img"></div>
+    <div class="login-img">
+        
+    </div>
 
 <hr/>
  
