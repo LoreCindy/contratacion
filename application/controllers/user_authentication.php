@@ -24,7 +24,6 @@ $this->load->library('form_validation');
 
 // Load session library
 $this->load->library('session');
-
 // Load database
 $this->load->model('login_database');
 

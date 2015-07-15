@@ -9,14 +9,9 @@ header("location: http://localhost:8080/PContratacion/index.php/user_authenticat
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/style.css">
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Open+Sans+Condensed:300|Raleway' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
-
-<script src="https://oss.maxcdn.com/jquery/1.11.1/jquery.min.js"></script>
-       
-        <script src="https://oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
-        <script type="text/javascript" src="validator.js"></script>
 </head>
 <body>
+    
 <div id="login">
 <h2>Registro Usuario</h2>
 <hr/>
@@ -28,31 +23,28 @@ echo "</div>";
 echo form_open('user_authentication/new_user_registration');
 ?>
 
- <div class="form-group">
-    <label for="username" class="control-label">Usuario:</label>
-    <input type="text" class="form-control" name="username" id="username" placeholder="usuario" required>
-   
-  </div>
 
-<div class="form-group">
+    <label for="username" class="control-label">Usuario:</label>
+    <br/>
+    <input type="text" class="form-control" name="username" id="username" placeholder="usuario" required>
+<br/>
     <label for="password" class="control-label">Contraseña :</label>
-      <input type="password" data-minlength="6" class="form-control" name="password" id="password" placeholder="Password" required/>
-      <span class="help-block">Minimum of 6 characters</span>
-      
+    <br/>
+      <input type="password" data-minlength="6" class="form-control" name="password" id="password" placeholder="Contraseña" required/>
+      <br/>
       <input type="password" class="form-control" name="passconf" id="passconf" data-match="#password" data-match-error="Whoops, these don't match" placeholder="Confirmar contraseña" required/>
       <?php if(validation_errors())
-          echo "  <div class='alert alert-danger'>";
-          echo validation_errors();
-          echo"</div>"
+         echo "<div class='alert alert-danger'>"+validation_errors()+"</div>"
       ?>
-  
+
+<br/>
 <input type='hidden' name='token' value='<?=$token?>'/>
+<input type="submit" value="Guardar" name="submit"/><br />
 <?php
-echo form_submit('submit', 'Guardar');
 echo form_close();
 ?>
 <a href="<?php echo base_url() ?> ">Si ya te encuentras registrado clic aqui</a>
-</div>
+
 </div>
 </body>
 </html>

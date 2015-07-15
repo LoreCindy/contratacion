@@ -10,6 +10,8 @@
  * @author cindy
  */
 class Revision extends CI_Controller{
+    
+  
     function __construct() 
 	{
 		
@@ -80,7 +82,15 @@ class Revision extends CI_Controller{
                        
 			/* Asignamos el idioma español */
 			$crud->set_language('spanish');
-
+                        
+                        $crud->fields(
+                              
+                                'nombre_revision',
+				'obdervaciones',
+                                'Proyecto_id_proyecto',
+                                'formatoLista_id_formato'
+                               
+                                );
 			/* Aqui le decimos a grocery que estos campos son obligatorios */
 			$crud->required_fields(	
                                 'id_revision',
@@ -116,7 +126,12 @@ class Revision extends CI_Controller{
 			/* Si algo sale mal cachamos el error y lo mostramos */
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
 		}
+          
 	}
+        
+      
+        
+        
 }
 
 ?>

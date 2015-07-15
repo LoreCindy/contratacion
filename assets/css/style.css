@@ -1,11 +1,8 @@
-div{
-    
-    background-color: #FAF1F1;
-}
+
 
 body{
     background-image:url("../fondo.jpg");
-     background-color: #8195F5;
+    background-color: #8195F5;
 }
 
 
@@ -21,11 +18,11 @@ color:red;
 }
 
 h2{
-background-color:#EAEBFF;
+
 text-align:center;
 border-radius: 10px 10px 0 0;
 margin: -10px -40px;
-padding: 30px;
+padding: 10px;
 margin-top: 30px;
 }
 
@@ -39,6 +36,7 @@ padding: 0px 40px 25px;
 margin-top: 70px;
 margin-left: auto;
 margin-right: auto;
+background: rgba(213,215,222,0.9);
 }
 
 input[type=text],input[type=password], input[type=email]{
@@ -99,4 +97,14 @@ color: #6495ED;
 left: 262px;
 width: 500px;
 text-align: center;
+}
+
+
+.login-img{
+    width: 46px;
+    height: 65px;
+    background-image:url("icon_candado.png");
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
 }
