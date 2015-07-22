@@ -12,6 +12,7 @@ foreach($css_files as $file): ?>
 <?php foreach($js_files as $file): ?>
 	<script src="<?php echo $file; ?>"></script>
 <?php endforeach; ?>
+        
 <style type='text/css'>
 body
 {
@@ -31,8 +32,17 @@ a:hover
 </head>
 <body>
 <center><h1>Administración de Revisión</h1></center>
+
     <div>
 		<?php echo $output; ?>
+
     </div>
-</body>
+   <?php
+if(isset($dropdown_setup)) {
+	$this->load->view('dependent_dropdown', $dropdown_setup);
+}
+?>
+
+  
+</body> 
 </html>
