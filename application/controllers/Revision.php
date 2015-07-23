@@ -228,8 +228,8 @@ $output->dropdown_setup = $dd_data;
 		$countryID = $this->uri->segment(3);
 		
 		$this->db->select("*")
-				 ->from('state')
-				 ->where('countryID', $countryID);
+				 ->from('datos_generales')
+				 ->where('formatoLista_id_formato', $countryID);
 		$db = $this->db->get();
 		
 		$array = array();
@@ -242,13 +242,13 @@ $output->dropdown_setup = $dd_data;
 	}
 	
 	//GET JSON OF CITIES
-	function get_cities()
+	function get_legalizacion()
 	{
 		$stateID = $this->uri->segment(3);
 		
 		$this->db->select("*")
-				 ->from('city')
-				 ->where('stateID', $stateID);
+				 ->from('formato_legalizacion')
+				 ->where('id_formato', $stateID);
 		$db = $this->db->get();
 		
 		$array = array();
