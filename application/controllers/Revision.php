@@ -72,13 +72,13 @@ class Revision extends CI_Controller{
                          /* aqui indicamos las relaciones de la tabla formato lista */
                         $crud->set_relation('Proyecto_id_proyecto', 'proyecto', 'nombre_proyecto');
                          //----------------------------------------------------------------------------------    
-                         $crud->set_primary_key('id_formato','formatolista');
+                         //$crud->set_primary_key('id_formato','formatolista');
                          $crud -> set_relation ('formatoLista_id_formato' , 'formatolista' , 'nombre_formato') ;
                      	/* Asignamos el idioma español */
 			$crud->set_language('spanish');
                         $crud->fields('nombre_revision', 'obdervaciones', 'Proyecto_id_proyecto', 'formatoLista_id_formato', 'datos_generales_id_datos_generales', 'formato_legalizacion_id_formato_legalizacion');
                  	/* Aqui le decimos a grocery que estos campos son obligatorios */
-			$crud->required_fields('id_revision','nombre_revision','obdervaciones', 'Proyecto_id_proyecto', 'formatoLista_id_formato', 'datos_generales_id_datos_generales', 'formato_legalizacion_id_formato_legalizacion');
+			$crud->required_fields('formatoLista_id_formato', 'datos_generales_id_datos_generales', 'formato_legalizacion_id_formato_legalizacion');
                         /* Aqui le indicamos que campos deseamos mostrar */
 			$crud->columns( 'id_revision', 'nombre_revision','obdervaciones','Proyecto_id_proyecto','formatoLista_id_formato', 'datos_generales_id_datos_generales', 'formato_legalizacion_id_formato_legalizacion');
                         $crud->display_as('id_revision','identificador')
@@ -88,10 +88,10 @@ class Revision extends CI_Controller{
                              ->display_as('formatoLista_id_formato','Formato Lista')
                              ->display_as('datos_generales_id_datos_generales','Datos Generales')
                             ->display_as('formato_legalizacion_id_formato_legalizacion','Formato Legalizaciòn');
-                          $crud->set_primary_key('id_datos_generales', 'datos_generales');
+                         // $crud->set_primary_key('id_datos_generales', 'datos_generales');
                         $crud->set_relation('datos_generales_id_datos_generales','datos_generales','nombre_dato');
 			//$crud->set_relation('id_formato','formatoLista','nombre_formato');
-                         $crud->set_primary_key('id_formato_legalizacion', 'formato_legalizacion');
+                        // $crud->set_primary_key('id_formato_legalizacion', 'formato_legalizacion');
 			$crud->set_relation('formato_legalizacion_id_formato_legalizacion','formato_legalizacion','documentos_legalizacion');
                         
                         
@@ -116,19 +116,14 @@ class Revision extends CI_Controller{
     'dd_dropdowns' => array('formatoLista_id_formato','datos_generales_id_datos_generales','formato_legalizacion_id_formato_legalizacion'),
     //SETUP URL POST FOR EACH CHILD
     //List in order as per above
-    'dd_url' => array('', site_url().'/examples/get_states/', site_url().'/examples/get_cities/'),
+    'dd_url' => array('', site_url().'/revision/get_states/', site_url().'/revision/get_cities/'),
     //LOADER THAT GETS DISPLAYED NEXT TO THE PARENT DROPDOWN WHILE THE CHILD LOADS
     'dd_ajax_loader' => base_url().'ajax-loader.gif'
 );
 $output->dropdown_setup = $dd_data;
 
 //-------------------------------------------------------------
-       
-                        
-			
-			/* La cargamos en la vista situada en 
-			/applications/views/productos/administracion.php */
-			$this->load->view('proyectos/revision', $output);
+       $this->load->view('proyectos/revision', $output);
                         
                         
 			
@@ -153,11 +148,11 @@ $output->dropdown_setup = $dd_data;
 			//GET THE STORED STATE ID
 			$this->db->select('formatoLista_id_formato','datos_generales_id_datos_generales')
 					 ->from('revision')
-					 ->where('nombre_revision', $listingID);
+					 ->where('id_revision', $listingID);
 			$db = $this->db->get();
 			$row = $db->row(0);
-			$countryID = $row->countryID;
-			$stateID = $row->stateID;
+			$countryID = $row->formatoLista_id_formato;
+			$stateID = $row->datos_generales_id_datos_generales;
 			
 			//GET THE STATES PER COUNTRY ID
 			$this->db->select('*')
@@ -167,10 +162,10 @@ $output->dropdown_setup = $dd_data;
 			
 			//APPEND THE OPTION FIELDS WITH VALUES FROM THE STATES PER THE COUNTRY ID
 			foreach($db->result() as $row):
-				if($row->state_id == $stateID) {
-					$empty_select .= '<option value="'.$row->state_id.'" selected="selected">'.$row->state_title.'</option>';
+				if($row->id_datos_generales == $stateID) {
+					$empty_select .= '<option value="'.$row->id_datos_generales.'" selected="selected">'.$row->nombre_dato.'</option>';
 				} else {
-					$empty_select .= '<option value="'.$row->state_id.'">'.$row->state_title.'</option>';
+					$empty_select .= '<option value="'.$row->id_datos_generales.'">'.$row->nombre_dato.'</option>';
 				}
 			endforeach;
 			
@@ -196,26 +191,26 @@ $output->dropdown_setup = $dd_data;
 		//CHECK FOR A URI VALUE AND MAKE SURE ITS ON THE EDIT STATE
 		if(isset($listingID) && $state == "edit") {
 			//GET THE STORED STATE ID
-			$this->db->select('datos_generales_id_datos_generales', 'id_formato_legalizacion')
+			$this->db->select('formatoLista_id_formato', 'formato_legalizacion_id_formato_legalizacion')
 					 ->from('revision')
-					 ->where('nombre_revision', $listingID);
+					 ->where('id_revision', $listingID);
 			$db = $this->db->get();
 			$row = $db->row(0);
-			$stateID = $row->stateID;
-			$cityID = $row->cityID;
+			$stateID = $row->formatoLista_id_formato;
+			$cityID = $row->formato_legalizacion_id_formato_legalizacion;
 			
                         //GET THE CITIES PER STATE ID
 			$this->db->select('*')
 					 ->from('formato_legalizacion')
-					 ->where('datos_generales_id_datos_generales', $stateID);
+					 ->where('formatoLista_id_formato', $stateID);
 			$db = $this->db->get();
 			
 			//APPEND THE OPTION FIELDS WITH VALUES FROM THE STATES PER THE COUNTRY ID
 			foreach($db->result() as $row):
-				if($row->city_id == $cityID) {
-					$empty_select .= '<option value="'.$row->city_id.'" selected="selected">'.$row->city_title.'</option>';
+				if($row->id_formato_legalizacion == $cityID) {
+					$empty_select .= '<option value="'.$row->id_formato_legalizacion.'" selected="selected">'.$row->documentos_legalizacion.'</option>';
 				} else {
-					$empty_select .= '<option value="'.$row->city_id.'">'.$row->city_title.'</option>';
+					$empty_select .= '<option value="'.$row->id_formato_legalizacion.'">'.$row->documentos_legalizacion.'</option>';
 				}
 			endforeach;
 			
@@ -236,10 +231,10 @@ $output->dropdown_setup = $dd_data;
 				 ->from('datos_generales')
 				 ->where('formatoLista_id_formato', $countryID);
 		$db = $this->db->get();
-		
+                    
 		$array = array();
 		foreach($db->result() as $row):
-			$array[] = array("value" => $row->state_id, "property" => $row->state_title);
+			$array[] = array("value" => $row->id_datos_generales, "property" => $row->nombre_dato);
 		endforeach;
 		
 		echo json_encode($array);
@@ -249,34 +244,24 @@ $output->dropdown_setup = $dd_data;
 	//GET JSON OF CITIES
 	function get_cities()
 	{
-		$stateID = $this->uri->segment(3);
+		$stateID = $this->uri->segment(4);
 		
 		$this->db->select("*")
 				 ->from('formato_legalizacion')
-				 ->where('datos_generales_id_datos_generales', $stateID);
+				 ->where('formatoLista_id_formato', $stateID);
 		$db = $this->db->get();
 		
 		$array = array();
 		foreach($db->result() as $row):
-			$array[] = array("value" => $row->city_id, "property" => $row->city_title);
+			$array[] = array("value" => $row->id_formato_legalizacion, "property" => $row->documentos_legalizacion);
 		endforeach;
 		
 		echo json_encode($array);
 		exit;
 	}
         
-    public function listar() {
-
-
-        $link = mysqli_connect("localhost", "root", "123", "mydb");
-        $query = "SELECT nombre_dato, formatoLista_id_formato FROM datos_generales";
-        $result = mysqli_query($link, $query);
-        while ($row = mysqli_fetch_array($result)) {
-            echo "<tr><td>Nombre</td><td>Formato</td></tr> \n";
-            echo "<tr><td>" . $row["nombre_dato"] . "</td><td>" . $row["formatoLista_id_formato"] . "</td></tr> \n";
-            echo "<table border = '2'> \n";
-        }
-    }
+   
+   
 
     
         
