@@ -96,9 +96,9 @@ class Revision extends CI_Controller{
                         
                         
                         //IF YOU HAVE A LARGE AMOUNT OF DATA, ENABLE THE CALLBACKS BELOW - FOR EXAMPLE ONE USER HAD 36000 CITIES AND SLOWERD UP THE LOADING PROCESS. THESE CALLBACKS WILL LOAD EMPTY SELECT FIELDS THEN POPULATE THEM AFTERWARDS
-			$crud->callback_edit_field('id_datos_generales', array($this, 'empty_state_dropdown_select'));
-			$crud->callback_add_field('id_formato_legalizacion', array($this, 'empty_city_dropdown_select'));
-			$crud->callback_edit_field('id_formato_legalizacion', array($this, 'empty_city_dropdown_select'));
+			$crud->callback_edit_field('datos_generales_id_datos_generales', array($this, 'empty_state_dropdown_select'));
+			$crud->callback_add_field('formato_legalizacion_id_formato_legalizacion', array($this, 'empty_city_dropdown_select'));
+			$crud->callback_edit_field('formato_legalizacion_id_formato_legalizacion', array($this, 'empty_city_dropdown_select'));
                 //---------------------------------------------------------
                 //
                 
@@ -113,7 +113,7 @@ class Revision extends CI_Controller{
     //SETUP YOUR DROPDOWNS
     //Parent field item always listed first in array, in this case countryID
     //Child field items need to follow in order, e.g stateID then cityID
-    'dd_dropdowns' => array('id_datos_generales','id_formato_legalizacion'),
+    'dd_dropdowns' => array('formatoLista_id_formato','datos_generales_id_datos_generales','formato_legalizacion_id_formato_legalizacion'),
     //SETUP URL POST FOR EACH CHILD
     //List in order as per above
     'dd_url' => array('', site_url().'/examples/get_states/', site_url().'/examples/get_cities/'),
@@ -139,7 +139,7 @@ $output->dropdown_setup = $dd_data;
 	function empty_state_dropdown_select()
 	{
 		//CREATE THE EMPTY SELECT STRING
-		$empty_select = '<select name="id_datos_generales" class="chosen-select" data-placeholder="Select State/Province" style="width: 300px; display: none;">';
+		$empty_select = '<select name="datos_generales_id_datos_generales" class="chosen-select" data-placeholder="Select Datos Generales" style="width: 300px; display: none;">';
 		$empty_select_closed = '</select>';
 		//GET THE ID OF THE LISTING USING URI
 		$listingID = $this->uri->segment(4);
@@ -151,7 +151,7 @@ $output->dropdown_setup = $dd_data;
 		//CHECK FOR A URI VALUE AND MAKE SURE ITS ON THE EDIT STATE
 		if(isset($listingID) && $state == "edit") {
 			//GET THE STORED STATE ID
-			$this->db->select('formatoLista_id_formato','id_datos_generales')
+			$this->db->select('formatoLista_id_formato','datos_generales_id_datos_generales')
 					 ->from('revision')
 					 ->where('nombre_revision', $listingID);
 			$db = $this->db->get();
@@ -184,7 +184,7 @@ $output->dropdown_setup = $dd_data;
 	function empty_city_dropdown_select()
 	{
 		//CREATE THE EMPTY SELECT STRING
-		$empty_select = '<select name="id_formato_legalizacion" class="chosen-select" data-placeholder="Select City/Town" style="width: 300px; display: none;">';
+		$empty_select = '<select name="formato_legalizacion_id_formato_legalizacion" class="chosen-select" data-placeholder="Select Formato Legalizaciòn" style="width: 300px; display: none;">';
 		$empty_select_closed = '</select>';
 		//GET THE ID OF THE LISTING USING URI
 		$listingID = $this->uri->segment(4);
@@ -196,7 +196,7 @@ $output->dropdown_setup = $dd_data;
 		//CHECK FOR A URI VALUE AND MAKE SURE ITS ON THE EDIT STATE
 		if(isset($listingID) && $state == "edit") {
 			//GET THE STORED STATE ID
-			$this->db->select('id_formato_legalizacion, id_formato_legalizacion')
+			$this->db->select('datos_generales_id_datos_generales', 'id_formato_legalizacion')
 					 ->from('revision')
 					 ->where('nombre_revision', $listingID);
 			$db = $this->db->get();
@@ -204,6 +204,11 @@ $output->dropdown_setup = $dd_data;
 			$stateID = $row->stateID;
 			$cityID = $row->cityID;
 			
+                        //GET THE CITIES PER STATE ID
+			$this->db->select('*')
+					 ->from('formato_legalizacion')
+					 ->where('datos_generales_id_datos_generales', $stateID);
+			$db = $this->db->get();
 			
 			//APPEND THE OPTION FIELDS WITH VALUES FROM THE STATES PER THE COUNTRY ID
 			foreach($db->result() as $row):
@@ -242,13 +247,13 @@ $output->dropdown_setup = $dd_data;
 	}
 	
 	//GET JSON OF CITIES
-	function get_legalizacion()
+	function get_cities()
 	{
 		$stateID = $this->uri->segment(3);
 		
 		$this->db->select("*")
 				 ->from('formato_legalizacion')
-				 ->where('id_formato', $stateID);
+				 ->where('datos_generales_id_datos_generales', $stateID);
 		$db = $this->db->get();
 		
 		$array = array();
