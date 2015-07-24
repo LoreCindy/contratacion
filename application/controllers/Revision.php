@@ -220,8 +220,7 @@ $output->dropdown_setup = $dd_data;
 			//RETURN SELECTION COMBO
 			return $empty_select.$empty_select_closed;	
 		}
-	}
-				
+	}		
 	//GET JSON OF STATES
 	function get_states()
 	{
@@ -241,7 +240,8 @@ $output->dropdown_setup = $dd_data;
 		exit;
 	}
 	
-	//GET JSON OF CITIES
+	
+//GET JSON OF CITIES
 	function get_cities()
 	{
 		$stateID = $this->uri->segment(4);

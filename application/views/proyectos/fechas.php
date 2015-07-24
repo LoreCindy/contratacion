@@ -4,7 +4,7 @@
 <br>
 <br>
 	<meta charset="utf-8" />
-	<title>Administracion Fecha- Sourcezilla</title>
+	<title>Detalles Revisión- Sourcezilla</title>
 <?php 
 foreach($css_files as $file): ?>
 	<link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
@@ -30,7 +30,7 @@ a:hover
 </style>
 </head>
 <body>
-<center><h1>Administración de Fecha</h1></center>
+<center><h1>Detalles Revisión</h1></center>
     <div>
 		<?php echo $output; ?>
     </div>
