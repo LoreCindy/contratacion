@@ -97,7 +97,7 @@ class Revision extends CI_Controller{
                         
                         //IF YOU HAVE A LARGE AMOUNT OF DATA, ENABLE THE CALLBACKS BELOW - FOR EXAMPLE ONE USER HAD 36000 CITIES AND SLOWERD UP THE LOADING PROCESS. THESE CALLBACKS WILL LOAD EMPTY SELECT FIELDS THEN POPULATE THEM AFTERWARDS
 			$crud->callback_edit_field('datos_generales_id_datos_generales', array($this, 'empty_state_dropdown_select'));
-			$crud->callback_add_field('formato_legalizacion_id_formato_legalizacion', array($this, 'empty_city_dropdown_select'));
+			//$crud->callback_add_field('formato_legalizacion_id_formato_legalizacion', array($this, 'empty_city_dropdown_select'));
 			$crud->callback_edit_field('formato_legalizacion_id_formato_legalizacion', array($this, 'empty_city_dropdown_select'));
                 //---------------------------------------------------------
                 //
@@ -113,7 +113,8 @@ class Revision extends CI_Controller{
     //SETUP YOUR DROPDOWNS
     //Parent field item always listed first in array, in this case countryID
     //Child field items need to follow in order, e.g stateID then cityID
-    'dd_dropdowns' => array('formatoLista_id_formato','datos_generales_id_datos_generales','formato_legalizacion_id_formato_legalizacion'),
+    'dd_dropdowns' => array('formatoLista_id_formato','datos_generales_id_datos_generales'),
+    'dd_dropdown' => array('formatoLista_id_formato','formato_legalizacion_id_formato_legalizacion'),
     //SETUP URL POST FOR EACH CHILD
     //List in order as per above
     'dd_url' => array('', site_url().'/revision/get_states/', site_url().'/revision/get_cities/'),
@@ -124,11 +125,7 @@ $output->dropdown_setup = $dd_data;
 
 //-------------------------------------------------------------
        $this->load->view('proyectos/revision', $output);
-                        
-                        
-			
-		
-          
+                    
 	}
       //CALLBACK FUNCTIONS
 	function empty_state_dropdown_select()

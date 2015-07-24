@@ -60,7 +60,7 @@ class Fecha extends CI_Controller {
                         
                         /* aqui indicamos las relaciones de la tabla formato lista*/
                        $crud -> set_relation ('revision_id_revision' , 'revision' , 'nombre_revision' ) ;
-                        $crud->fields('idFecha',
+                       $crud->fields('idFecha',
 				'nombre_fecha', 
 				'fecha',
                                 'nombreResponsable',
