@@ -10,7 +10,6 @@
  *
  * @author cindy
  */
-
 class Garantia extends CI_Controller {
      function __construct() 
 	{
