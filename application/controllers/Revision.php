@@ -79,6 +79,8 @@ class Revision extends CI_Controller{
                         $crud->fields('nombre_revision', 'obdervaciones', 'Proyecto_id_proyecto', 'formatoLista_id_formato', 'datos_generales_id_datos_generales', 'formato_legalizacion_id_formato_legalizacion');
                  	/* Aqui le decimos a grocery que estos campos son obligatorios */
 			$crud->required_fields('formatoLista_id_formato', 'datos_generales_id_datos_generales', 'formato_legalizacion_id_formato_legalizacion');
+                        $crud->edit_fields('nombre_revision', 'obdervaciones', 'Proyecto_id_proyecto', 'formatoLista_id_formato');
+                        
                         /* Aqui le indicamos que campos deseamos mostrar */
 			$crud->columns( 'id_revision', 'nombre_revision','obdervaciones','Proyecto_id_proyecto','formatoLista_id_formato', 'datos_generales_id_datos_generales', 'formato_legalizacion_id_formato_legalizacion');
                         $crud->display_as('id_revision','identificador')
