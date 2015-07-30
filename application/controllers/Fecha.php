@@ -60,7 +60,7 @@ class Fecha extends CI_Controller {
                         
                         /* aqui indicamos las relaciones de la tabla formato lista*/
                        $crud -> set_relation ('revision_id_revision' , 'revision' , 'nombre_revision' ) ;
-                       $crud->fields('idFecha',
+                       $crud->fields(
 				'nombre_fecha', 
 				'fecha',
                                 'nombreResponsable',
@@ -68,7 +68,7 @@ class Fecha extends CI_Controller {
                                 'revision_id_revision');
 			/* Aqui le decimos a grocery que estos campos son obligatorios */
 			$crud->required_fields(	
-                                'idFecha',
+                            'idFecha',
 				'nombre_fecha', 
 				'fecha',
                                 'nombreResponsable',
@@ -79,7 +79,7 @@ class Fecha extends CI_Controller {
 
 			/* Aqui le indicamos que campos deseamos mostrar */
 			$crud->columns(
-                                'idFecha',
+                               'idFecha',
 				'nombre_fecha', 
 				'fecha',
                                 'nombreResponsable',

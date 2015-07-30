@@ -69,6 +69,7 @@ class Garantia extends CI_Controller {
                      //---------------------------------------------------------------------------      
                          
                       //-------------------------------------------------------------
+                    
                           $crud->set_primary_key('idDocumento','documento');
                           $crud -> set_relation ('Documento_idDocumento' , 'documento' , 'nombre_Documento') ;
                          

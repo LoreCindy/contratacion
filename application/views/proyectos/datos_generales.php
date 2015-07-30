@@ -34,7 +34,7 @@ a:hover
     <div>
 		<?php echo $output; ?>
                   <button onclick="location.href='formato_legalizacion'">Formato legalización</button>  
-             
+                          
     </div>
 </body>
 </html>

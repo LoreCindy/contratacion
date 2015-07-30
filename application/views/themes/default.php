@@ -184,6 +184,7 @@ header("location: proyecto");
                   <li><a href="<?php echo site_url('fecha'); ?>">Detalle Revisión</a></li>
                 <li><a href="<?php echo site_url('documento'); ?>">Documento</a></li>
                     <li><a href="<?php echo site_url('garantia'); ?>">Garantia</a></li>
+                     
 
             </ul>
               
