@@ -9,102 +9,90 @@
  *
  * @author cindy
  */
-class Revision extends CI_Controller{
-    
-  
-    function __construct() 
-	{
-		
-		parent::__construct();
+class Revision extends CI_Controller {
 
-		/* Cargamos la base de datos */
-		$this->load->database();
+    function __construct() {
 
-		/* Cargamos la libreria*/
-		$this->load->library('grocery_crud');
-                
-            
+        parent::__construct();
+
+        /* Cargamos la base de datos */
+        $this->load->database();
+
+        /* Cargamos la libreria */
+        $this->load->library('grocery_crud');
 
 
-		/* Añadimos el helper al controlador */
-		$this->load->helper('url');
-                
-                $this->_init();
-                
-                
-                
-                
-             
-	}
-        
-        private function _init()
-	{
-		$this->output->set_template('default');
-                $this->load->js('assets/themes/default/js/jquery-1.9.1.min.js');
-		$this->load->js('assets/themes/default/hero_files/bootstrap-transition.js');
-		$this->load->js('assets/themes/default/hero_files/bootstrap-collapse.js');
 
-		
-	}
 
-	/*
-	 * 
- 	 **/
-	function index()
-	{
-		
+        /* Añadimos el helper al controlador */
+        $this->load->helper('url');
 
-			/* Creamos el objeto */
-			$crud = new grocery_CRUD();
+        $this->_init();
+    }
 
-			/* Seleccionamos el tema */
-			$crud->set_theme('flexigrid');
+    private function _init() {
+        $this->output->set_template('default');
+        $this->load->js('assets/themes/default/js/jquery-1.9.1.min.js');
+        $this->load->js('assets/themes/default/hero_files/bootstrap-transition.js');
+        $this->load->js('assets/themes/default/hero_files/bootstrap-collapse.js');
+    }
 
-			/* Seleccionmos el nombre de la tabla de nuestra base de datos*/
-			$crud->set_table('revision');
+    /*
+     * 
+     * */
 
-			/* Le asignamos un nombre */
-			$crud->set_subject('Revision');
-                        $crud->set_primary_key('id_revision','revision');
-                        //------------------------------------------------------------------------------                           
-                        /* aqui indicamos la llave primaria de la tabla relacion  */
-                        $crud->set_primary_key('id_proyecto', 'proyecto');
-                         /* aqui indicamos las relaciones de la tabla formato lista */
-                        $crud->set_relation('Proyecto_id_proyecto', 'proyecto', 'nombre_proyecto');
-                         //----------------------------------------------------------------------------------    
-                         //$crud->set_primary_key('id_formato','formatolista');
-                         $crud -> set_relation ('formatoLista_id_formato' , 'formatolista' , 'nombre_formato') ;
-                     	/* Asignamos el idioma español */
-			$crud->set_language('spanish');
-                        $crud->fields('nombre_revision', 'obdervaciones', 'Proyecto_id_proyecto', 'formatoLista_id_formato', 'datos_generales_id_datos_generales', 'formato_legalizacion_id_formato_legalizacion');
-                 	/* Aqui le decimos a grocery que estos campos son obligatorios */
-			$crud->required_fields('formatoLista_id_formato', 'datos_generales_id_datos_generales', 'formato_legalizacion_id_formato_legalizacion');
-                        $crud->unset_edit_fields('nombre_revision', 'obdervaciones', 'Proyecto_id_proyecto', 'formatoLista_id_formato','datos_generales_id_datos_generales','formato_legalizacion_id_formato_legalizacion' );
-                              
-                        /* Aqui le indicamos que campos deseamos mostrar */
-			$crud->columns( 'id_revision', 'nombre_revision','obdervaciones','Proyecto_id_proyecto','formatoLista_id_formato', 'datos_generales_id_datos_generales', 'formato_legalizacion_id_formato_legalizacion');
-                        $crud->display_as('id_revision','identificador')
-                             ->display_as('nombre_revision','Nombre revision')
-                             ->display_as('obdervaciones','Observaciones')
-                             ->display_as('Proyecto_id_proyecto','Proyecto')
-                             ->display_as('formatoLista_id_formato','Formato Lista')
-                             ->display_as('datos_generales_id_datos_generales','Datos Generales')
-                            ->display_as('formato_legalizacion_id_formato_legalizacion','Formato Legalizaciòn');
-                             //   $crud->set_primary_key('id_datos_generales', 'datos_generales');
-                            //  $crud->set_primary_key('id_formato_legalizacion', 'formato_legalizacion');
-                             $crud->set_relation('datos_generales_id_datos_generales','datos_generales','nombre_dato');
-                             $crud->set_relation('formato_legalizacion_id_formato_legalizacion','formato_legalizacion','documentos_legalizacion');
-                             //IF YOU HAVE A LARGE AMOUNT OF DATA, ENABLE THE CALLBACKS BELOW - FOR EXAMPLE ONE USER HAD 36000 CITIES AND SLOWERD UP THE LOADING PROCESS. THESE CALLBACKS WILL LOAD EMPTY SELECT FIELDS THEN POPULATE THEM AFTERWARDS
-                          //$crud->callback_edit_field('datos_generales_id_datos_generales', array($this, 'empty_state_dropdown_select'));
-                            $crud->callback_add_field('datos_generales_id_datos_generales', array($this, 'empty_state_dropdown_select'));
-                           // $crud->callback_add_field('formato_legalizacion_id_formato_legalizacion', array($this, 'empty_city_dropdown_select'));
-                          // $crud->callback_edit_field('formato_legalizacion_id_formato_legalizacion', array($this, 'empty_city_dropdown_select'));
-                         //  $crud->callback_insert('datos_generales_id_datos_generales', array($this, 'empty_state_dropdown_select'));
-                         
-                         $crud -> unset_texteditor ( 'obdervaciones' ) ;
+    function index() {
+
+
+        /* Creamos el objeto */
+        $crud = new grocery_CRUD();
+
+        /* Seleccionamos el tema */
+        $crud->set_theme('flexigrid');
+
+        /* Seleccionmos el nombre de la tabla de nuestra base de datos */
+        $crud->set_table('revision');
+
+        /* Le asignamos un nombre */
+        $crud->set_subject('Revision');
+        $crud->set_primary_key('id_revision', 'revision');
+        //------------------------------------------------------------------------------                           
+        /* aqui indicamos la llave primaria de la tabla relacion  */
+        $crud->set_primary_key('id_proyecto', 'proyecto');
+        /* aqui indicamos las relaciones de la tabla formato lista */
+        $crud->set_relation('Proyecto_id_proyecto', 'proyecto', 'nombre_proyecto');
+        //----------------------------------------------------------------------------------    
+        //$crud->set_primary_key('id_formato','formatolista');
+        $crud->set_relation('formatoLista_id_formato', 'formatolista', 'nombre_formato');
+        /* Asignamos el idioma español */
+        $crud->set_language('spanish');
+        $crud->fields('nombre_revision', 'obdervaciones', 'Proyecto_id_proyecto', 'formatoLista_id_formato', 'datos_generales_id_datos_generales', 'formato_legalizacion_id_formato_legalizacion');
+        /* Aqui le decimos a grocery que estos campos son obligatorios */
+        $crud->required_fields('formatoLista_id_formato', 'datos_generales_id_datos_generales', 'formato_legalizacion_id_formato_legalizacion');
+        $crud->unset_edit_fields('nombre_revision', 'obdervaciones', 'Proyecto_id_proyecto', 'formatoLista_id_formato', 'datos_generales_id_datos_generales', 'formato_legalizacion_id_formato_legalizacion');
+
+        /* Aqui le indicamos que campos deseamos mostrar */
+        $crud->columns('id_revision', 'nombre_revision', 'obdervaciones', 'Proyecto_id_proyecto', 'formatoLista_id_formato', 'datos_generales_id_datos_generales', 'formato_legalizacion_id_formato_legalizacion');
+        $crud->display_as('id_revision', 'identificador')
+                ->display_as('nombre_revision', 'Nombre revision')
+                ->display_as('obdervaciones', 'Observaciones')
+                ->display_as('Proyecto_id_proyecto', 'Proyecto')
+                ->display_as('formatoLista_id_formato', 'Formato Lista')
+                ->display_as('datos_generales_id_datos_generales', 'Datos Generales')
+                ->display_as('formato_legalizacion_id_formato_legalizacion', 'Formato Legalizaciòn');
+        //   $crud->set_primary_key('id_datos_generales', 'datos_generales');
+        //  $crud->set_primary_key('id_formato_legalizacion', 'formato_legalizacion');
+        $crud->set_relation('datos_generales_id_datos_generales', 'datos_generales', 'nombre_dato');
+        $crud->set_relation('formato_legalizacion_id_formato_legalizacion', 'formato_legalizacion', 'documentos_legalizacion');
+        //IF YOU HAVE A LARGE AMOUNT OF DATA, ENABLE THE CALLBACKS BELOW - FOR EXAMPLE ONE USER HAD 36000 CITIES AND SLOWERD UP THE LOADING PROCESS. THESE CALLBACKS WILL LOAD EMPTY SELECT FIELDS THEN POPULATE THEM AFTERWARDS
+        //$crud->callback_edit_field('datos_generales_id_datos_generales', array($this, 'empty_state_dropdown_select'));
+        // $crud->callback_add_field('datos_generales_id_datos_generales', array($this, 'empty_state_dropdown_select'));
+        // $crud->callback_add_field('formato_legalizacion_id_formato_legalizacion', array($this, 'empty_city_dropdown_select'));
+        // $crud->callback_edit_field('formato_legalizacion_id_formato_legalizacion', array($this, 'empty_city_dropdown_select'));
+        //  $crud->callback_insert('datos_generales_id_datos_generales', array($this, 'empty_state_dropdown_select'));
+
+        $crud -> unset_texteditor ( 'obdervaciones' ) ;
                    
-     
-        //--------------------------------------------------------------
         //
                         
 			/* Generamos la tabla */

@@ -46,7 +46,7 @@ class Fecha extends CI_Controller {
 			$crud->set_table('fecha');
 
 			/* Le asignamos un nombre */
-			$crud->set_subject('Fecha');
+			$crud->set_subject('Detalle Revisión');
 
                          $crud->set_primary_key('idFecha','fecha');
                                 //('codigoBPID','Proyecto');

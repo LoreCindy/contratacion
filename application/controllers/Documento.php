@@ -92,7 +92,7 @@ class Documento extends CI_Controller {
 			
                          $crud->display_as('idDocumento','Identificador')
                                ->display_as('nombre_Documento','Nombre del documento');
-                            
+                             $crud -> unset_texteditor ( 'Observaciones' ) ;
 			/* Generamos la tabla */
 			$output = $crud->render();
 			
