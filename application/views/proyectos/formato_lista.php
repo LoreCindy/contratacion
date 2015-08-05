@@ -3,6 +3,8 @@
 <head>
 <br>
 <br>
+
+
 	<meta charset="utf-8" />
 	<title>Administracion Formato Lista - Sourcezilla</title>
 <?php 
@@ -13,6 +15,7 @@ foreach($css_files as $file): ?>
 	<script src="<?php echo $file; ?>"></script>
 <?php endforeach; ?>
 <style type='text/css'>
+    
 body
 {
 	font-family: Arial;
@@ -33,7 +36,8 @@ a:hover
 <center><h1>Administración de Formato Lista</h1></center>
     <div>
 		<?php echo $output; ?>
-      <button onclick="location.href='datos_generales'">Datos Generales</button>  
+              <button onclick="location.href='datos_generales'">Datos Generales</button>  
+
                 
     </div>
 </body>

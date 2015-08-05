@@ -70,32 +70,33 @@ public function user_registration_show() {
 $this->load->view('registration_form',$data);
 }
 public function user_registration() {
+    
     $data['message_display'] = 'usuario ya existe!';
-    $data['titulo'] = 'registro seguro en codeigniter con Bcrypt';
-    $data['token'] = $this->token();
+    $data['titulo'] ='registro seguro en codeigniter con Bcrypt';
+    $data['token']=$this->token();
 $this->load->view('registration_form',$data);
 }
-
 // Validate and store registration data in database
 public function new_user_registration() {
  if($this->input->post('token') && $this->input->post('token') == $this->session->userdata('token'))
     {
 // Check validation for user input in SignUp form
-//$this->form_validation->set_rules('username', 'Username', 'trim|required');
+$this->form_validation->set_rules('username', 'Username', 'trim|required');
 $this->form_validation->set_rules('password', 'Password', 'required|matches[passconf]');
 $this->form_validation->set_rules('passconf', 'Confirmar contraseña', 'trim|required');
 
  //lanzamos mensajes de error si es que los hay
 //$this->form_validation->set_message('required','El campo es requerido');
 //$this->form_validation->set_message('min_length', 'El campo debe tener al menos 6 carácteres');
-$this->form_validation->set_message('matches', 'Las contraseñas no coinciden. ¿Quieres volver a intentarlo?');
+$this->form_validation->set_message('required','Las contraseñas no coinciden. ¿Quieres volver a intentarlo?');
 
 if ($this->form_validation->run() == FALSE) {
 $this->user_registration_show();  
 } else {
 $data = array(
 'username' => $this->input->post('username'),
-'password' => $this->input->post('password')
+'password' => $this->input->post('password'),
+
 );
 $username = $data['username'] ;
 $password = $data['password'] ;

@@ -70,8 +70,8 @@ class Garantia extends CI_Controller {
                          
                       //-------------------------------------------------------------
                     
-                          $crud->set_primary_key('idDocumento','documento');
-                          $crud -> set_relation ('Documento_idDocumento' , 'documento' , 'nombre_Documento') ;
+                         // $crud->set_primary_key('idDocumento','documento');
+                          //$crud -> set_relation ('Documento_idDocumento' , 'documento' , 'nombre_Documento') ;
                          
                           $crud->set_primary_key('id_revision','revision');
                           $crud -> set_relation ('revision_id_revision' , 'revision' , 'nombre_revision') ;
@@ -85,7 +85,6 @@ class Garantia extends CI_Controller {
                                 'idGarantia',
 				'descripcion_documento', 
 				'TipoGarantia',
-                                'Documento_idDocumento',
                                 'aseguradora',
                                 'numero_garantia',
                                 'porcentaje',
@@ -94,15 +93,15 @@ class Garantia extends CI_Controller {
                                 'vigencia',
                                 'Aplica',
                                 'revision_id_revision',
-                                'formato_legalizacion_id_formato_legalizacion'
+                                'formato_legalizacion_id_formato_legalizacion',
+                                'documento_garantia'
                             );
 
 			/* Aqui le indicamos que campos deseamos mostrar */
 			$crud->columns(
-                                'idGarantia',
+                               'idGarantia',
 				'descripcion_documento', 
 				'TipoGarantia',
-                                'Documento_idDocumento',
                                 'aseguradora',
                                 'numero_garantia',
                                 'porcentaje',
@@ -111,8 +110,12 @@ class Garantia extends CI_Controller {
                                 'vigencia',
                                 'Aplica',
                                 'revision_id_revision',
-                                'formato_legalizacion_id_formato_legalizacion'
+                                'formato_legalizacion_id_formato_legalizacion',
+                                'documento_garantia'
                             );
+                        
+                           /* aqui indicamos el buscador de un archivo en pdf */
+                         $crud->set_field_upload('documento_garantia', 'assets/uploads/files');
 			$crud->display_as('idGarantia','Identificador')
                                 ->display_as('descripcion_documento','Descripcion del documento')
                                 ->display_as('TipoGarantia','Tipo Garantia')

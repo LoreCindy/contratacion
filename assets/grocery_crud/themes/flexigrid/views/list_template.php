@@ -27,6 +27,17 @@
 	$this->load_js_jqueryui();
 
 ?>
+
+
+<link rel="stylesheet"  href="<?php echo base_url(); ?> /plugins/FancyBox/jquery.fancybox.css" type="text/css" v="2.0.6">
+<Script type = "text / javascript" src=" <?= base_url ()?> assets / plugins / fancybox / jquery . fancybox . pack . js ? v = 2.0 . 6 "> </script> 
+<script  type = "text/javascript" > 
+$ ( document1 ). ready ( function ()  { 
+$ ( ".various" ). fancybox (); 
+}); 
+</script>
+
+
 <script type='text/javascript'>
 	var base_url = '<?php echo base_url();?>';
 
@@ -59,7 +70,7 @@ if($success_message !== null){?>
 	<div class="tDiv">
 		<?php if(!$unset_add){?>
 		<div class="tDiv2">
-        	<a href='<?php echo $add_url?>' title='<?php echo $this->l('list_add'); ?> <?php echo $subject?>' class='add-anchor add_button'>
+        	<a href='<?php echo $add_url?>' title='<?php echo $this->l('list_add'); ?> <?php echo $subject?>' class='various fancybox.ajax'>
 			<div class="fbutton">
 				<div>
 					<span class="add"><?php echo $this->l('list_add'); ?> <?php echo $subject?></span>

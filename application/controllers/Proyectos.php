@@ -76,7 +76,7 @@ class Proyectos extends CI_Controller {
                                 'nombre_modalidad',
                                 'nombre_tipoContratacion'
                             );
-
+//$crud -> callback_column ( 'proyecto' , array ( $this ,  '_callback_phone' ));
 			/* Aqui le indicamos que campos deseamos mostrar */
 			$crud->columns('id_proyecto',
 				'nombre_proyecto', 
@@ -126,6 +126,15 @@ class Proyectos extends CI_Controller {
             
         }
         }
+        
+        
+        
+      /*  
+// FancyBox PRUEBA 
+public function _callback_phone ( $value , $fila ) 
+{ 
+  return  "<a href='http://www.grocerycrud.com/assets/themes/default/images/logo.png' class='fancybox'> $ valor </a> " ; 
+}*/
 }
 
 

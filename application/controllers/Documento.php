@@ -1,4 +1,4 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+    <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /*
  * To change this template, choose Tools | Templates
@@ -62,7 +62,12 @@ class Documento extends CI_Controller {
 			/* Asignamos el idioma español */
 			$crud->set_language('spanish');
                         
+                         //-------------------------------------------------------------------------------    
+                         $crud->set_primary_key('id_formato_legalizacion','formato_legalizacion');
                         
+                         $crud -> set_relation ('formato_legalizacion_id_formato_legalizacion' , 'formato_legalizacion' , 'documentos_legalizacion') ;
+                         
+                     //--------------------------------------------------------------------------- 
                         //---------------------------------------------------------
                         
                          /* aqui indicamos el buscador de un archivo en pdf */
@@ -76,7 +81,8 @@ class Documento extends CI_Controller {
                                 'fecha',
                                 'supervisor',
                                 'DAC',
-                                'Observaciones'
+                                'Observaciones',
+                                'formato_legalizacion_id_formato_legalizacion'
                             );
 
 			/* Aqui le indicamos que campos deseamos mostrar */
@@ -87,11 +93,14 @@ class Documento extends CI_Controller {
                                 'fecha',
                                 'supervisor',
                                 'DAC',
-                                'Observaciones'
+                                'Observaciones',
+                                'formato_legalizacion_id_formato_legalizacion'
+                                
                             );
 			
                          $crud->display_as('idDocumento','Identificador')
-                               ->display_as('nombre_Documento','Nombre del documento');
+                               ->display_as('nombre_Documento','Nombre del documento')
+                               ->display_as('formato_legalizacion_id_formato_legalizacion','Formato Legalización');
                              $crud -> unset_texteditor ( 'Observaciones' ) ;
 			/* Generamos la tabla */
 			$output = $crud->render();
