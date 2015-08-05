@@ -73,9 +73,6 @@ class Garantia extends CI_Controller {
                          // $crud->set_primary_key('idDocumento','documento');
                           //$crud -> set_relation ('Documento_idDocumento' , 'documento' , 'nombre_Documento') ;
                          
-                          $crud->set_primary_key('id_revision','revision');
-                          $crud -> set_relation ('revision_id_revision' , 'revision' , 'nombre_revision') ;
-                         
                          
 			/* Asignamos el idioma español */
 			$crud->set_language('spanish');
@@ -92,7 +89,6 @@ class Garantia extends CI_Controller {
                                 'valor',
                                 'vigencia',
                                 'Aplica',
-                                'revision_id_revision',
                                 'formato_legalizacion_id_formato_legalizacion',
                                 'documento_garantia'
                             );
@@ -109,7 +105,6 @@ class Garantia extends CI_Controller {
                                 'valor',
                                 'vigencia',
                                 'Aplica',
-                                'revision_id_revision',
                                 'formato_legalizacion_id_formato_legalizacion',
                                 'documento_garantia'
                             );
@@ -122,9 +117,8 @@ class Garantia extends CI_Controller {
                                 ->display_as('Documento_idDocumento','Documento')
                                 ->display_as('numero_garantia','N° Garantia')
                                 ->display_as('tiempo_año','Año')
-                                   ->display_as('valor','Valor $')
-                                ->display_as('revision_id_revision','Nombre revisión')
-                                ->display_as('formato_legalizacion_id_formato_legalizacion','Formato Legalización');
+                                ->display_as('valor','Valor $')
+                               ->display_as('formato_legalizacion_id_formato_legalizacion','Formato Legalización');
                              
                               
                         $crud->field_type('TipoGarantia','dropdown',
