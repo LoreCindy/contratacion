@@ -55,7 +55,8 @@
 		<div class="pDiv">
 			<div class='form-button-box'>
 				<input id="form-button-save" type='submit' value='<?php echo $this->l('form_save'); ?>'  class="btn btn-large"/>
-			</div>
+                        </div>
+                    
 <?php 	if(!$this->unset_back_to_list) { ?>
 			<div class='form-button-box'>
 				<input type='button' value='<?php echo $this->l('form_save_and_go_back'); ?>' id="save-and-go-back-button"  class="btn btn-large"/>
@@ -63,6 +64,7 @@
 			<div class='form-button-box'>
 				<input type='button' value='<?php echo $this->l('form_cancel'); ?>' class="btn btn-large" id="cancel-button" />
 			</div>
+                         
 <?php 	} ?>
 			<div class='form-button-box'>
 				<div class='small-loading' id='FormLoading'><?php echo $this->l('form_insert_loading'); ?></div>

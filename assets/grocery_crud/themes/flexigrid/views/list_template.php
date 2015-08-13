@@ -125,6 +125,7 @@ if($success_message !== null){?>
         <div class='search-div-clear-button'>
         	<input type="button" value="<?php echo $this->l('list_clear_filtering');?>" id='search_clear' class="search_clear">
         </div>
+            
 	</div>
 	<div class="pDiv">
 		<div class="pDiv2">
@@ -178,6 +179,7 @@ if($success_message !== null){?>
 			</div>
 			<div class="btnseparator">
 			</div>
+                     
 			<div class="pGroup">
 				<span class="pPageStat">
 					<?php $paging_starts_from = "<span id='page-starts-from' class='page-starts-from'>1</span>"; ?>
@@ -189,10 +191,13 @@ if($success_message !== null){?>
 										   ); ?>
 				</span>
 			</div>
+                   
 		</div>
 		<div style="clear: both;">
-		</div>
+                </div>
+            <br>
 	</div>
+             
 	<?php echo form_close(); ?>
 	</div>
 </div>

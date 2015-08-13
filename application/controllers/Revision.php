@@ -20,16 +20,13 @@ class Revision extends CI_Controller {
 
         /* Cargamos la libreria */
         $this->load->library('grocery_crud');
-
-
-
-
+          
         /* Añadimos el helper al controlador */
         $this->load->helper('url');
 
         $this->_init();
     }
-
+    
     private function _init() {
         $this->output->set_template('default');
         $this->load->js('assets/themes/default/js/jquery-1.9.1.min.js');
@@ -37,16 +34,12 @@ class Revision extends CI_Controller {
         $this->load->js('assets/themes/default/hero_files/bootstrap-collapse.js');
     }
 
-    /*
-     * 
-     * */
-
     function index() {
 
 
         /* Creamos el objeto */
         $crud = new grocery_CRUD();
-
+      
         /* Seleccionamos el tema */
         $crud->set_theme('flexigrid');
 
@@ -60,10 +53,10 @@ class Revision extends CI_Controller {
         /* aqui indicamos la llave primaria de la tabla relacion  */
         $crud->set_primary_key('id_proyecto', 'proyecto');
         /* aqui indicamos las relaciones de la tabla formato lista */
-        $crud->set_relation('Proyecto_id_proyecto', 'proyecto', 'nombre_proyecto');
+        $crud->set_relation('Proyecto_id_proyecto', 'proyecto', 'nombre_contratista');
         //----------------------------------------------------------------------------------    
         //$crud->set_primary_key('id_formato','formatolista');
-        $crud->set_relation('formatoLista_id_formato', 'formatolista', 'nombre_formato');
+        $crud->set_relation('formatoLista_id_formato', 'formatolista', '{id_formato} | {nombre_formato} ');
         /* Asignamos el idioma español */
         $crud->set_language('spanish');
         $crud->fields('nombre_revision', 'obdervaciones', 'Proyecto_id_proyecto', 'formatoLista_id_formato', 'datos_generales_id_datos_generales', 'formato_legalizacion_id_formato_legalizacion');
@@ -76,51 +69,53 @@ class Revision extends CI_Controller {
         $crud->display_as('id_revision', 'identificador')
                 ->display_as('nombre_revision', 'Nombre revision')
                 ->display_as('obdervaciones', 'Observaciones')
-                ->display_as('Proyecto_id_proyecto', 'Proyecto')
+                ->display_as('Proyecto_id_proyecto', 'Contratista o Contrato')
                 ->display_as('formatoLista_id_formato', 'Formato Lista')
                 ->display_as('datos_generales_id_datos_generales', 'Datos Generales')
                 ->display_as('formato_legalizacion_id_formato_legalizacion', 'Formato Legalizaciòn');
         //   $crud->set_primary_key('id_datos_generales', 'datos_generales');
         //  $crud->set_primary_key('id_formato_legalizacion', 'formato_legalizacion');
-        $crud->set_relation('datos_generales_id_datos_generales', 'datos_generales', 'nombre_dato');
-        $crud->set_relation('formato_legalizacion_id_formato_legalizacion', 'formato_legalizacion', 'documentos_legalizacion');
+        $crud->set_relation('datos_generales_id_datos_generales', 'datos_generales', '{nombre_dato}');
+        $crud->set_relation('formato_legalizacion_id_formato_legalizacion', 'formato_legalizacion', '{documentos_legalizacion} |{formatoLista_id_formato}');
         //IF YOU HAVE A LARGE AMOUNT OF DATA, ENABLE THE CALLBACKS BELOW - FOR EXAMPLE ONE USER HAD 36000 CITIES AND SLOWERD UP THE LOADING PROCESS. THESE CALLBACKS WILL LOAD EMPTY SELECT FIELDS THEN POPULATE THEM AFTERWARDS
         //$crud->callback_edit_field('datos_generales_id_datos_generales', array($this, 'empty_state_dropdown_select'));
         // $crud->callback_add_field('datos_generales_id_datos_generales', array($this, 'empty_state_dropdown_select'));
-        // $crud->callback_add_field('formato_legalizacion_id_formato_legalizacion', array($this, 'empty_city_dropdown_select'));
+       // $crud->callback_add_field('formato_legalizacion_id_formato_legalizacion', array($this, 'empty_city_dropdown_select'));
         // $crud->callback_edit_field('formato_legalizacion_id_formato_legalizacion', array($this, 'empty_city_dropdown_select'));
         //  $crud->callback_insert('datos_generales_id_datos_generales', array($this, 'empty_state_dropdown_select'));
-
         $crud -> unset_texteditor ( 'obdervaciones' ) ;
-                   
-        //
-                        
-			/* Generamos la tabla */
-        $output = $crud->render();
+       
+        
+        /* Generamos la tabla */
+       $output = $crud->render();
         //favoritos link
-
-
-        $dd_data = array(
+     
+            $dd_data = array(
             //GET THE STATE OF THE CURRENT PAGE - E.G LIST | ADD
-            'dd_state' => $crud->getState(),
+                'dd_state' => $crud->getState(),
             //SETUP YOUR DROPDOWNS
             //Parent field item always listed first in array, in this case countryID
             //Child field items need to follow in order, e.g stateID then cityID
-            'dd_dropdowns' => array('formatoLista_id_formato', 'datos_generales_id_datos_generales'),
-            'dd_dropdown' => array('formatoLista_id_formato', 'formato_legalizacion_id_formato_legalizacion'),
+                'dd_dropdowns' => array('formatoLista_id_formato', 'datos_generales_id_datos_generales'),
+                'dd_dropdown' => array('formatoLista_id_formato', 'formato_legalizacion_id_formato_legalizacion'),
+           
             //SETUP URL POST FOR EACH CHILD
             //List in order as per above
             'dd_url' => array('', site_url() . '/revision/get_states/', site_url() . '/revision/get_cities/'),
             //LOADER THAT GETS DISPLAYED NEXT TO THE PARENT DROPDOWN WHILE THE CHILD LOADS
             'dd_ajax_loader' => base_url() . 'ajax-loader.gif'
         );
-        $output->dropdown_setup = $dd_data;
+         $output->dropdown_setup = $dd_data;
 
-//-------------------------------------------------------------
+        //-------------------------------------------------------------
        $this->load->view('proyectos/revision', $output);
-                    
+                   
+       
+       
+       
 	}
-      //CALLBACK FUNCTIONS
+         
+        //CALLBACK FUNCTIONS
 	function empty_state_dropdown_select()
 	{
 		//CREATE THE EMPTY SELECT STRING
@@ -140,7 +135,7 @@ class Revision extends CI_Controller {
 					 ->from('revision')
 					 ->where('id_revision', $listingID);
 			$db = $this->db->get();
-			$row = $db->row(0);
+			$row = $db->row();
 			$countryID = $row->formatoLista_id_formato;
 			$stateID = $row->datos_generales_id_datos_generales;
                         //datos_generales_id_datos_generales;
@@ -167,6 +162,11 @@ class Revision extends CI_Controller {
 			return $empty_select.$empty_select_closed;	
 		}
 	}
+        
+        
+       
+        
+        
 	function empty_city_dropdown_select()
 	{
 		//CREATE THE EMPTY SELECT STRING
@@ -176,9 +176,9 @@ class Revision extends CI_Controller {
 		$listingID = $this->uri->segment(4);
 		
 		//LOAD GCRUD AND GET THE STATE
+		
 		$crud = new grocery_CRUD();
 		$state = $crud->getState();
-		
 		//CHECK FOR A URI VALUE AND MAKE SURE ITS ON THE EDIT STATE
 		if(isset($listingID) && $state == "edit") {
 			//GET THE STORED STATE ID
@@ -251,7 +251,17 @@ class Revision extends CI_Controller {
 		exit;
 	}
         
-        
+        function  get_datos(){
+            
+            $query= $this->db->query('select id_datos_generales,nombre_dato, from datos_generales');
+            
+            if($query->num_rows()>0){
+                foreach ($query->result()as $row)
+                    $arrDatos[htmlspecialchars ($row->id_datos_generales, ENT_QUOTES)]=  htmlspecialchars ($row->documentos_legalizacion, ENT_QUOTES);
+                $query->free_result();
+                return $arrDatos;
+            }
+        }
 
       
 }

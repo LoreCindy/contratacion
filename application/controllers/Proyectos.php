@@ -71,22 +71,21 @@ class Proyectos extends CI_Controller {
 			/* Aqui le decimos a grocery que estos campos son obligatorios */
 			$crud->required_fields(	
                                 'id_proyecto',
-				'nombre_proyecto', 
-				'codigoBPID',
+				'fecha_radicacion', 
+				'nombre_contratista',
                                 'nombre_modalidad',
                                 'nombre_tipoContratacion'
                             );
-//$crud -> callback_column ( 'proyecto' , array ( $this ,  '_callback_phone' ));
-			/* Aqui le indicamos que campos deseamos mostrar */
 			$crud->columns('id_proyecto',
-				'nombre_proyecto', 
-				'codigoBPID',
+				'fecha_radicacion', 
+				'nombre_contratista',
                                 'nombre_modalidad',
                                 'nombre_tipoContratacion'
                             );
                         
-			$crud->display_as('nombre_proyecto','Nombre del proyecto')
-                             ->display_as('codigoBPID','Codigo BPID')
+			$crud->display_as('id_proyecto','radicación')
+                             ->display_as('fecha_radicacion','Fecha radicación')
+                                 ->display_as('nombre_contratista','Nombre contratista o Contrato')
                              ->display_as('nombre_modalidad','Nombre de la modalidad')
                              ->display_as('nombre_tipoContratacion','Tipo Contratacion');
                         
