@@ -36,7 +36,8 @@ a:hover
 <center><h1>Administración de Formato Lista</h1></center>
     <div>
 		<?php echo $output; ?>
-              <button onclick="location.href='datos_generales'">Datos Generales</button>  
+              <a href="<?php echo base_url();?>index.php/datos_generales" class="btn btn-info" role="button">Datos Generales</a>
+                
 
                 
     </div>
