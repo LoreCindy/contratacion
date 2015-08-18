@@ -88,9 +88,9 @@ class Fecha extends CI_Controller {
                             );
                         $crud->display_as('idFecha','Identificador')
                                ->display_as('nombre_fecha','Estado')
-                                ->display_as('nombreResponsable','Nombre Responsable')
-                                ->display_as('dependenciaResponsable','Dependencia Responsable')
-                                 ->display_as('revision_id_revision','Revisión');
+                               ->display_as('nombreResponsable','Nombre Responsable')
+                               ->display_as('dependenciaResponsable','Dependencia Responsable')
+                               ->display_as('revision_id_revision','Revisión');
                         
 			$crud->field_type('nombre_fecha','dropdown',
                         array('1' => 'Recibido', '2' => 'Devolucion', '3'=>'Aprobado') );

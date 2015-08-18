@@ -180,8 +180,9 @@ header("location: proyecto");
             
                 <li><a href="<?php echo site_url('proyectos'); ?>">Proyecto</a></li>
                 <li><a href="<?php echo site_url('formato_lista');?>">Formato Lista</a></li>
+                 <li><a href="<?php echo site_url('chequeo');?>">Chequeo</a></li>
                 <li><a href="<?php echo site_url('revision'); ?>">Revision</a></li>
-                  <li><a href="<?php echo site_url('fecha'); ?>">Detalle Revisión</a></li>
+                <li><a href="<?php echo site_url('fecha'); ?>">Detalle Revisión</a></li>
                   <li><a href="<?php echo site_url('garantia'); ?>">Garantia</a></li>
                      
 
