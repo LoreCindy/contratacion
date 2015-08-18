@@ -114,6 +114,28 @@ class Revision extends CI_Controller {
        
        
 	}
+        
+        /*
+         * metodo para lista Detalle
+         */
+        
+        public function _callback_detalle($value) {
+
+            
+            $id=$_GET['id_formato_legalizacion'];
+        if( $value == 1 ) {
+            return'<div style = "color: blue;"> Recibido </ div>';
+        }
+        else if($value==2){
+            return'<div style = "color: red;"> Devolucion </ div>';
+        }
+        else if($value==3){
+            return'<div style = "color: black;"> Aprobado </ div>';
+        }
+    }
+        
+        
+        
          
         //CALLBACK FUNCTIONS
 	function empty_state_dropdown_select()

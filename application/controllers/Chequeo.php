@@ -59,7 +59,7 @@ function index()
                          
                          /* Asignamos el idioma español */
 			$crud->set_language('spanish');
-
+                       
 			/* Aqui le decimos a grocery que estos campos son obligatorios */
 			$crud->required_fields(	
                                 'idChequeo',

@@ -61,7 +61,7 @@ class Fecha extends CI_Controller {
                         /* aqui indicamos las relaciones de la tabla formato lista*/
                        $crud -> set_relation ('revision_id_revision' , 'revision' , 'nombre_revision' ) ;
                        $crud->fields(
-				'nombre_fecha', 
+				'estado', 
 				'fecha',
                                 'nombreResponsable',
                                 'dependenciaResponsable',
@@ -69,7 +69,7 @@ class Fecha extends CI_Controller {
 			/* Aqui le decimos a grocery que estos campos son obligatorios */
 			$crud->required_fields(	
                             'idFecha',
-				'nombre_fecha', 
+				'estado', 
 				'fecha',
                                 'nombreResponsable',
                                 'dependenciaResponsable',
@@ -80,20 +80,28 @@ class Fecha extends CI_Controller {
 			/* Aqui le indicamos que campos deseamos mostrar */
 			$crud->columns(
                                'idFecha',
-				'nombre_fecha', 
+				'estado', 
 				'fecha',
                                 'nombreResponsable',
                                 'dependenciaResponsable',
                                 'revision_id_revision'
                             );
                         $crud->display_as('idFecha','Identificador')
-                               ->display_as('nombre_fecha','Estado')
+                               ->display_as('estado','Estado')
                                ->display_as('nombreResponsable','Nombre Responsable')
                                ->display_as('dependenciaResponsable','Dependencia Responsable')
                                ->display_as('revision_id_revision','Revisión');
                         
-			$crud->field_type('nombre_fecha','dropdown',
+			$crud->field_type('estado','dropdown',
                         array('1' => 'Recibido', '2' => 'Devolucion', '3'=>'Aprobado') );
+                        
+                        /*
+                         * colorear estado de un registro
+                         */
+                        $crud ->callback_column ( 'estado' , array ( $this ,  '_callback_status' ));
+                        
+                        
+                        
 			/* Generamos la tabla */
 			$output = $crud->render();
 			
@@ -106,6 +114,21 @@ class Fecha extends CI_Controller {
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
 		}
 	}
+        
+        public function _callback_status($value, $fila) {
+
+        if( $value == 1 ) {
+            return'<div style = "color: blue;"> Recibido </ div>';
+        }
+        else if($value==2){
+            return'<div style = "color: red;"> Devolucion </ div>';
+        }
+        else if($value==3){
+            return'<div style = "color: black;"> Aprobado </ div>';
+        }
+    }
+
 }
+
 
 ?>
