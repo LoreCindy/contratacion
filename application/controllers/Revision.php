@@ -19,7 +19,9 @@ class Revision extends CI_Controller {
         $this->load->database();
 
         /* Cargamos la libreria */
-        $this->load->library('grocery_crud');
+      $this->load->library('grocery_crud');
+       //$this->load->library('grocery_crud_categories');
+
           
         /* Añadimos el helper al controlador */
         $this->load->helper('url');
@@ -78,14 +80,10 @@ class Revision extends CI_Controller {
         $crud->set_relation('datos_generales_id_datos_generales', 'datos_generales', '{nombre_dato}');
         $crud->set_relation('formato_legalizacion_id_formato_legalizacion', 'formato_legalizacion', '{documentos_legalizacion} |{formatoLista_id_formato}');
         //IF YOU HAVE A LARGE AMOUNT OF DATA, ENABLE THE CALLBACKS BELOW - FOR EXAMPLE ONE USER HAD 36000 CITIES AND SLOWERD UP THE LOADING PROCESS. THESE CALLBACKS WILL LOAD EMPTY SELECT FIELDS THEN POPULATE THEM AFTERWARDS
-        //$crud->callback_edit_field('datos_generales_id_datos_generales', array($this, 'empty_state_dropdown_select'));
-        // $crud->callback_add_field('datos_generales_id_datos_generales', array($this, 'empty_state_dropdown_select'));
-       // $crud->callback_add_field('formato_legalizacion_id_formato_legalizacion', array($this, 'empty_city_dropdown_select'));
-        // $crud->callback_edit_field('formato_legalizacion_id_formato_legalizacion', array($this, 'empty_city_dropdown_select'));
-        //  $crud->callback_insert('datos_generales_id_datos_generales', array($this, 'empty_state_dropdown_select'));
-        $crud -> unset_texteditor ( 'obdervaciones' ) ;
        
-        
+        $crud -> unset_texteditor ( 'obdervaciones' ) ;
+    $crud->callback_add_field('formato_legalizacion_id_formato_legalizacion',array($this,'prueba'));
+    
         /* Generamos la tabla */
        $output = $crud->render();
         //favoritos link
@@ -109,34 +107,139 @@ class Revision extends CI_Controller {
 
         //-------------------------------------------------------------
        $this->load->view('proyectos/revision', $output);
-                   
-       
-       
-       
+           
 	}
-        
-        /*
-         * metodo para lista Detalle
-         */
-        
-        public function _callback_detalle($value) {
+     
+   
 
+
+
+    function prueba(){
+        $bd="mydb";
+        $host = 'localhost';
+        $user = 'root';
+        $pwd =  '123';
+        $conexion= mysqli_connect($host, $user, $pwd, $bd)
+                or die ("ha sucedido un error al conectarse con la bd");
+        
+        $sql= "select * from  formato_legalizacion";
+        if(!$result = mysqli_query($conexion, $sql)) die();
+        $formato_legalizacion = array();
+        
+        while($row= mysqli_fetch_array($result)){
+        
+         return '<table border="2px">
+                <tr>  
+                <td border="2px">
+                <td >Nombre</td>
+                 <td>documentos</dt>  
+                  <td>formato lista</td> 
+                </td>
+                 </tr>
+    </table>';
+            //----
+          $id=$row['id_formato_legalizacion'];
+            $documentos_legalizacion= $row['documentos_legalizacion'];
+            $formato_listas= $row['formatoLista_id_formato'];
             
-            $id=$_GET['id_formato_legalizacion'];
-        if( $value == 1 ) {
-            return'<div style = "color: blue;"> Recibido </ div>';
+              $formato_legalizacion[]=array('id'=> $id, 'documentos'=> $documentos_legalizacion, 'formato'=> $formato_listas);
+                   
+            
         }
-        else if($value==2){
-            return'<div style = "color: red;"> Devolucion </ div>';
-        }
-        else if($value==3){
-            return'<div style = "color: black;"> Aprobado </ div>';
+        
+        $close = mysqli_close($conexion) or die("Ha sucedido un error inexperado en la desconexion de la base de datos");
+
+        
+      
+}
+        
+  
+            
+    
+    function jj() {
+      
+        $empty_select = '<SELECT name="formato_legalizacion_id_formato_legalizacion" class="chosen-select" data-placeholder="Select Formato Legalizaciòn"';
+//se envia la consulta  
+//$result = mysql_query("SELECT * FROM formato_legalizacion where  id_formato_legalizacion = $f"); 
+        
+    if($empty_select==TRUE){
+ 
+   return '<table border="2px">
+                <tr>  
+                <td border="2px">
+                <td >Nombre</td>
+                 <td>documentos</dt>  
+                  <td>formato lista</td> 
+                </td>
+                 </tr>
+    </table>';
+    }
+    else{
+        return 'jjjk';
+        /*while ($row = mysql_fetch_row($empty_select)) {
+      
+            echo "<tr>";
+            echo "<td>' . $row[documentos_legalizacion] . '></td>";
+            echo "<td>' . $row[1] . '</td>";
+            echo "<td>' . $row[2] . '</td>";
+            echo "</tr>";*/
         }
     }
+
+    function mostrar(){
+      $sql='<SELECT name="formato_legalizacion_id_formato_legalizacion" class="chosen-select" data-placeholder="Select Formato Legalizaciòn"';
+
+      $item=0;
+      if(mysql_num_rows($sql)==0){
+      while($mostrar=  mysql_fetch_array($sql)){
+      $lista= mysql_num_row(mysql_query("SELECT *  from formato_legalizacion where formatoLista_id_formato=".$mostrar['id_formato'].""));
+      $item=$item+1;
+      return
+      '<table border="2px">
+      <tr>
+      <td>
+      <td>Nombre</td>
+      <td>documentos</dt>
+      <td>formato lista</td>
+      <tr>
+      <td>' .$item . '</td>
+      <td> ' . $mostrar['formatoLista_id_formato'] . '</td>
+      <td> '.$mostrar['nombre_formato'].'</td>
+      <td> '.$mostrar['fecha_formato'].'</td>
+      <td>'.$lista.'<td>
+      <td><input type="button" value= "Detalle" class="btn" onClick="verDetalle(/'.$mostrar['id_formato'].'/)"><td>
+      </tr> ';
+      }
+      }else{
+      echo'<tr><td colspan="5"> nose enocntraron registros--</td></tr>';
+      }
+      }
+      
         
         
+        function add_field_callback_1() {
+            
+            
+        return ' 
+        <table border="2px">
+        <caption>Legalizacion, jhjhjhj</caption>
+        <tr>
+        <td>'.['formato_legalizacion_id_formato_legalizacion'].'</td>
+        <td> 2 </td>
+        <td> 3 </td>
+        </tr>
+        <tr>
+        <td> 4 </td>
+        <td> 5 </td>
+        <td> 6 </td>
+        </tr>
         
-         
+        </table>
+        
+        ';
+    }
+ 
+        
         //CALLBACK FUNCTIONS
 	function empty_state_dropdown_select()
 	{
@@ -221,6 +324,7 @@ class Revision extends CI_Controller {
 			//APPEND THE OPTION FIELDS WITH VALUES FROM THE STATES PER THE COUNTRY ID
 			foreach($db->result() as $row):
 				if($row->id_formato_legalizacion == $cityID) {
+                                    echo 'hola';
 					$empty_select .= '<option value="'.$row->id_formato_legalizacion.'" selected="selected">'.$row->documentos_legalizacion.'</option>';
 				} else {
 					$empty_select .= '<option value="'.$row->id_formato_legalizacion.'">'.$row->documentos_legalizacion.'</option>';
@@ -272,20 +376,4 @@ class Revision extends CI_Controller {
 		echo json_encode($array);
 		exit;
 	}
-        
-        function  get_datos(){
-            
-            $query= $this->db->query('select id_datos_generales,nombre_dato, from datos_generales');
-            
-            if($query->num_rows()>0){
-                foreach ($query->result()as $row)
-                    $arrDatos[htmlspecialchars ($row->id_datos_generales, ENT_QUOTES)]=  htmlspecialchars ($row->documentos_legalizacion, ENT_QUOTES);
-                $query->free_result();
-                return $arrDatos;
-            }
-        }
-
-      
 }
-
-?>

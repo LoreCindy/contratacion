@@ -127,6 +127,10 @@ class Fecha extends CI_Controller {
             return'<div style = "color: black;"> Aprobado </ div>';
         }
     }
+    private $colDetalle = array();
+    public function detalle(Revision $detalle){
+        $this->colDetalle[]=$detalle;
+    }
 
 }
 
